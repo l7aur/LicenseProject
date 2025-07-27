@@ -55,7 +55,7 @@
     <ClInclude Include="resource1.h">
       <Filter>Resource Files\Icon</Filter>
     </ClInclude>
-    <ClInclude Include="SeriesBuilder.hpp">
+    <ClInclude Include="PixelExtractor.hpp">
       <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Slice.hpp">
@@ -89,7 +89,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SeriesBuilder.cpp">
+    <ClCompile Include="PixelExtractor.cpp">
       <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="Slice.cpp">

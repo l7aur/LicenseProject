@@ -138,7 +138,7 @@
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="SeriesBuilder.hpp" />
+    <ClInclude Include="PixelExtractor.hpp" />
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
     <ClInclude Include="thread_safe_queue.hpp" />
@@ -155,7 +155,7 @@
     <ClCompile Include="EdgeSet.cpp" />
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SeriesBuilder.cpp" />
+    <ClCompile Include="PixelExtractor.cpp" />
     <ClCompile Include="Slice.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -16,11 +16,11 @@ void ExecutionPipeline::execute(const bool withCheckpoints)
 		}
 
 		if (withCheckpoints && prevFilter != nullptr)
-			prevFilter->loadCheckpoint();
+			prevFilter->loadCheckpoint("test");
 
 		currentFilter->execute();
 
 		if (withCheckpoints)
-			currentFilter->saveProgress();
+			currentFilter->saveProgress("test");
 	}
 }

@@ -6,11 +6,11 @@
 
 class Slice;
 
-class SeriesBuilder : public thread_pool
+class PixelExtractor : public thread_pool
 {
 public:
-	SeriesBuilder(const std::string& path, const bool createCheckpoint);
-	~SeriesBuilder();
+	PixelExtractor(const std::string& path, const bool createCheckpoint);
+	~PixelExtractor();
 
 private:
 	std::vector<Slice*> series;

@@ -1,9 +1,9 @@
-#include "SeriesBuilder.hpp"
+#include "PixelExtractor.hpp"
 #include "Slice.hpp"
 #include <filesystem>
 #include <stdexcept>
 
-SeriesBuilder::SeriesBuilder(const std::string& path, const bool createCheckpoint) {
+PixelExtractor::PixelExtractor(const std::string& path, const bool createCheckpoint) {
 	if(!std::filesystem::exists(path))
 		throw std::exception("Path to the folder does not exist!");
 	setupSeries(path);
@@ -12,13 +12,13 @@ SeriesBuilder::SeriesBuilder(const std::string& path, const bool createCheckpoin
 		: populateSeriesWithoutCheckpoint(path);
 }
 
-SeriesBuilder::~SeriesBuilder()
+PixelExtractor::~PixelExtractor()
 {
 	for (const auto& slice : series)
 		delete slice;
 }
 
-void SeriesBuilder::setupSeries(const std::string& path)
+void PixelExtractor::setupSeries(const std::string& path)
 {
 	size_t numberOfFiles = 0;
 	for (const auto& entry : std::filesystem::directory_iterator(path))
@@ -27,7 +27,7 @@ void SeriesBuilder::setupSeries(const std::string& path)
 	series.resize(numberOfFiles, nullptr);
 }
 
-void SeriesBuilder::populateSeriesWithCheckpoint(const std::string& path)
+void PixelExtractor::populateSeriesWithCheckpoint(const std::string& path)
 {
 	if (std::filesystem::exists(CHECKPOINT_PATH))
 		std::filesystem::remove_all(CHECKPOINT_PATH);
@@ -46,7 +46,7 @@ void SeriesBuilder::populateSeriesWithCheckpoint(const std::string& path)
 		}
 }
 
-void SeriesBuilder::populateSeriesWithoutCheckpoint(const std::string& path)
+void PixelExtractor::populateSeriesWithoutCheckpoint(const std::string& path)
 {
 	size_t index = 0;
 	for (const auto& entry : std::filesystem::directory_iterator(path))
