@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Icon">
+      <UniqueIdentifier>{c96161e0-1b04-4b15-a30f-c9f47bc14b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Edge Extractor">
+      <UniqueIdentifier>{4048b02a-06f8-40cf-a0ad-75f5bfc09643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DICOM Pixel Extractor">
+      <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DICOM Pixel Extractor\Headers">
+      <UniqueIdentifier>{10f305f3-3720-4223-81f9-89c81154fd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DICOM Pixel Extractor\Sources">
+      <UniqueIdentifier>{91875b9a-d449-4df0-b874-b5d08a256214}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Edge Extractor\Headers">
+      <UniqueIdentifier>{fc48361f-0ce1-4a36-ae33-5ef6bfc5d264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Edge Extractor\Sources">
+      <UniqueIdentifier>{c6fe1459-e725-46f1-bc17-e9ad2598a9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Miscellaneous">
+      <UniqueIdentifier>{c903169b-c472-47ad-874c-e43e858bf649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MAIN">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Data Structures">
+      <UniqueIdentifier>{fdbf0c55-bf07-4b57-bff5-113688ff56c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages">
+      <UniqueIdentifier>{c5cdc5ff-241f-471d-988c-8caaeefb8ec2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LicenseProject.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource1.h">
+      <Filter>Resource Files\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="SeriesBuilder.hpp">
+      <Filter>DICOM Pixel Extractor\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Slice.hpp">
+      <Filter>DICOM Pixel Extractor\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeSet.hpp">
+      <Filter>Edge Extractor\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeExtractor.hpp">
+      <Filter>Edge Extractor\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_pool.hpp">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="thread_safe_queue.hpp">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Warnings.hpp">
+      <Filter>Messages</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico">
+      <Filter>Resource Files\Icon</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SeriesBuilder.cpp">
+      <Filter>DICOM Pixel Extractor\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Slice.cpp">
+      <Filter>DICOM Pixel Extractor\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgeExtractor.cpp">
+      <Filter>Edge Extractor\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgeSet.cpp">
+      <Filter>Edge Extractor\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>MAIN</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitignore">
+      <Filter>Miscellaneous</Filter>
+    </None>
+    <None Include="cpp.hint">
+      <Filter>Miscellaneous</Filter>
+    </None>
+  </ItemGroup>
+</Project>
