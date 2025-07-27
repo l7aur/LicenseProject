@@ -4,8 +4,8 @@
 #include <stdexcept>
 
 SeriesBuilder::SeriesBuilder(const std::string& path, const bool createCheckpoint) {
-	if (!std::filesystem::exists(path))
-		throw std::exception("Path to series does not exist!");
+	if(!std::filesystem::exists(path))
+		throw std::exception("Path to the folder does not exist!");
 	setupSeries(path);
 	createCheckpoint
 		? populateSeriesWithCheckpoint(path)

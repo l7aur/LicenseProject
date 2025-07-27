@@ -3,7 +3,7 @@
 
 #include "SeriesBuilder.hpp"
 #include "EdgeExtractor.hpp"
-//#include <opencv2/opencv.hpp>
+
 /*
 	PREPROCESSING to do: checkpoint
 	PROCESSING 1: canny edge detection
@@ -33,11 +33,11 @@ int main() {
 void preprocessing()
 {
 	try {
-		SeriesBuilder seriesBuilder{ "C:\\Users\\L7aur\\Desktop\\StatusCodeLic\\dicom_data\\Series 500 [CT - CRANE APC]", withCheckpoints };
+		SeriesBuilder seriesBuilder{ "C:\\Users\\L7aur\\Desktop\\Desktop\\StatusCodeLic\\dicom_data\\Series 500 [CT - CRANE APC]", withCheckpoints };
 		seriesBuilder.waitForFinish();
 	}
-	catch (...) {
-		std::cout << "Unable to create the multithreaded series builder!\n Exception: " << /*e.what() <<*/ std::endl;
+	catch (const std::exception& e) {
+		std::cout << "Unable to create the multithreaded series builder!\nException: " << e.what() << std::endl;
 		std::exit(EXIT_THREAD_ALLOCATION_ERROR);
 	}
 }

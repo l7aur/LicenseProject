@@ -21,7 +21,7 @@ public:
 	}
 
 	~thread_pool() {
-		isDone = true;
+		waitForFinish();
 	}
 
 	template<typename FunctionType>

@@ -8,24 +8,6 @@
     <Filter Include="Resource Files\Icon">
       <UniqueIdentifier>{c96161e0-1b04-4b15-a30f-c9f47bc14b39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Edge Extractor">
-      <UniqueIdentifier>{4048b02a-06f8-40cf-a0ad-75f5bfc09643}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DICOM Pixel Extractor">
-      <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DICOM Pixel Extractor\Headers">
-      <UniqueIdentifier>{10f305f3-3720-4223-81f9-89c81154fd49}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DICOM Pixel Extractor\Sources">
-      <UniqueIdentifier>{91875b9a-d449-4df0-b874-b5d08a256214}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Edge Extractor\Headers">
-      <UniqueIdentifier>{fc48361f-0ce1-4a36-ae33-5ef6bfc5d264}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Edge Extractor\Sources">
-      <UniqueIdentifier>{c6fe1459-e725-46f1-bc17-e9ad2598a9dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Miscellaneous">
       <UniqueIdentifier>{c903169b-c472-47ad-874c-e43e858bf649}</UniqueIdentifier>
     </Filter>
@@ -39,6 +21,30 @@
     <Filter Include="Messages">
       <UniqueIdentifier>{c5cdc5ff-241f-471d-988c-8caaeefb8ec2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{be7fe63c-18b1-4aeb-838c-94650450aef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Edge Extractor">
+      <UniqueIdentifier>{4048b02a-06f8-40cf-a0ad-75f5bfc09643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Edge Extractor\Headers">
+      <UniqueIdentifier>{fc48361f-0ce1-4a36-ae33-5ef6bfc5d264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Edge Extractor\Sources">
+      <UniqueIdentifier>{c6fe1459-e725-46f1-bc17-e9ad2598a9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\DICOM Pixel Extractor">
+      <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\DICOM Pixel Extractor\Headers">
+      <UniqueIdentifier>{10f305f3-3720-4223-81f9-89c81154fd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\DICOM Pixel Extractor\Sources">
+      <UniqueIdentifier>{91875b9a-d449-4df0-b874-b5d08a256214}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pipeline">
+      <UniqueIdentifier>{6e96e677-87ad-47b7-87e3-6ebec4c5c252}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LicenseProject.rc">
@@ -50,16 +56,16 @@
       <Filter>Resource Files\Icon</Filter>
     </ClInclude>
     <ClInclude Include="SeriesBuilder.hpp">
-      <Filter>DICOM Pixel Extractor\Headers</Filter>
+      <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Slice.hpp">
-      <Filter>DICOM Pixel Extractor\Headers</Filter>
+      <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="EdgeSet.hpp">
-      <Filter>Edge Extractor\Headers</Filter>
+      <Filter>Filters\Edge Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="EdgeExtractor.hpp">
-      <Filter>Edge Extractor\Headers</Filter>
+      <Filter>Filters\Edge Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="thread_pool.hpp">
       <Filter>Data Structures</Filter>
@@ -70,6 +76,12 @@
     <ClInclude Include="Warnings.hpp">
       <Filter>Messages</Filter>
     </ClInclude>
+    <ClInclude Include="ExecutionPipeline.hpp">
+      <Filter>Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="IFilter.hpp">
+      <Filter>Filters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon.ico">
@@ -78,19 +90,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SeriesBuilder.cpp">
-      <Filter>DICOM Pixel Extractor\Sources</Filter>
+      <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="Slice.cpp">
-      <Filter>DICOM Pixel Extractor\Sources</Filter>
+      <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="EdgeExtractor.cpp">
-      <Filter>Edge Extractor\Sources</Filter>
+      <Filter>Filters\Edge Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="EdgeSet.cpp">
-      <Filter>Edge Extractor\Sources</Filter>
+      <Filter>Filters\Edge Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>MAIN</Filter>
+    </ClCompile>
+    <ClCompile Include="ExecutionPipeline.cpp">
+      <Filter>Pipeline</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
