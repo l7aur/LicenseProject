@@ -82,6 +82,9 @@
     <ClInclude Include="IFilter.hpp">
       <Filter>Filters</Filter>
     </ClInclude>
+    <ClInclude Include="pixel_matrix.hpp">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon.ico">

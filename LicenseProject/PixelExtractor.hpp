@@ -1,16 +1,24 @@
 #pragma once
 
+#include "thread_pool.hpp"
+#include "IFilter.hpp"
+
 #include <vector>
 #include <string>
-#include "thread_pool.hpp"
 
 class Slice;
 
-class PixelExtractor : public thread_pool
+class PixelExtractor : public thread_pool, public IFilter
 {
 public:
-	PixelExtractor(const std::string& path, const bool createCheckpoint);
+	PixelExtractor();
 	~PixelExtractor();
+
+	void setup(const std::string& workingDirectoryPath) override;
+	void execute() const override;
+	void saveProgress(const std::string& checkpointPath) const override;
+	bool existsCheckpoint() const override;
+	void loadCheckpoint(const std::string& checkpointPath) override;
 
 private:
 	std::vector<Slice*> series;

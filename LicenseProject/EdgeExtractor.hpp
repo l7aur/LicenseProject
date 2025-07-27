@@ -12,6 +12,7 @@ public:
 	~EdgeExtractor() = default;
 
 private:
+	void setup(const std::string& workingDirectoryPath) override {};
 	void execute() const override {};
 	void saveProgress(const std::string& checkpointPath) const override {};
 	bool existsCheckpoint() const override { return true; };

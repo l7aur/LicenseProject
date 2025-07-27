@@ -3,19 +3,42 @@
 #include <filesystem>
 #include <stdexcept>
 
-PixelExtractor::PixelExtractor(const std::string& path, const bool createCheckpoint) {
-	if(!std::filesystem::exists(path))
-		throw std::exception("Path to the folder does not exist!");
-	setupSeries(path);
-	createCheckpoint
-		? populateSeriesWithCheckpoint(path)
-		: populateSeriesWithoutCheckpoint(path);
+PixelExtractor::PixelExtractor() {
 }
 
 PixelExtractor::~PixelExtractor()
 {
 	for (const auto& slice : series)
 		delete slice;
+}
+
+void PixelExtractor::setup(const std::string& workingDirectoryPath)
+{
+	this->workingDirectoryPath = workingDirectoryPath;
+}
+
+void PixelExtractor::execute() const {
+	size_t index = 0;
+	/*for (const auto& entry : std::filesystem::directory_iterator(workingDirectoryPath))
+		if (entry.is_regular_file()) {
+			this->submit(
+				[index, filePath = entry.path().string(), this] {
+					this->series.at(index) = new Slice(filePath);
+				});
+			index++;
+		}*/
+}
+
+void PixelExtractor::saveProgress(const std::string& checkpointPath) const {
+
+}
+
+bool PixelExtractor::existsCheckpoint() const {
+	return true;
+}
+
+void PixelExtractor::loadCheckpoint(const std::string& checkpointPath) {
+
 }
 
 void PixelExtractor::setupSeries(const std::string& path)

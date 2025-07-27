@@ -7,9 +7,9 @@ namespace Settings {
 }
 
 int main() {
-	ExecutionPipeline pipeline{};
+	ExecutionPipeline pipeline{"../dicom_data/Series 201 [CT - CRANE SANS]/"};
 
-	//pipeline.addFilter(std::make_unique(new PixelExtractor));
+	pipeline.addFilter(std::make_unique<PixelExtractor>());
 	pipeline.addFilter(std::make_unique<EdgeExtractor>());
 
 	pipeline.execute(Settings::withCheckpoints);
