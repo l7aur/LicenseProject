@@ -3,9 +3,6 @@
 #include <filesystem>
 #include <stdexcept>
 
-PixelExtractor::PixelExtractor() {
-}
-
 PixelExtractor::~PixelExtractor()
 {
 	for (const auto& slice : series)

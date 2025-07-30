@@ -61,10 +61,10 @@
     <ClInclude Include="Slice.hpp">
       <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="EdgeSet.hpp">
+    <ClInclude Include="Contour.hpp">
       <Filter>Filters\Edge Extractor\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="EdgeExtractor.hpp">
+    <ClInclude Include="ContourExtractor.hpp">
       <Filter>Filters\Edge Extractor\Headers</Filter>
     </ClInclude>
     <ClInclude Include="thread_pool.hpp">
@@ -98,10 +98,10 @@
     <ClCompile Include="Slice.cpp">
       <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="EdgeExtractor.cpp">
+    <ClCompile Include="ContourExtractor.cpp">
       <Filter>Filters\Edge Extractor\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="EdgeSet.cpp">
+    <ClCompile Include="Contour.cpp">
       <Filter>Filters\Edge Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">

@@ -8,13 +8,15 @@
 
 class Slice;
 
-class PixelExtractor : public thread_pool, public IFilter
+class PixelExtractor : public thread_pool, 
+					   public IFilter
 {
 public:
-	PixelExtractor();
+	PixelExtractor() = default;
 	~PixelExtractor();
 
 	void setup(const std::string& workingDirectoryPath) override;
+	void setup() override {}
 	void execute() const override;
 	void saveProgress(const std::string& checkpointPath) const override;
 	bool existsCheckpoint() const override;

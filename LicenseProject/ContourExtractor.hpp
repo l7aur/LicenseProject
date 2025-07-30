@@ -5,14 +5,15 @@
 
 class Slice;
 
-class EdgeExtractor : protected thread_pool, public IFilter
+class ContourExtractor : protected thread_pool, public IFilter
 {
 public:
-	EdgeExtractor() = default;
-	~EdgeExtractor() = default;
+	ContourExtractor() = default;
+	~ContourExtractor() = default;
 
 private:
-	void setup(const std::string& workingDirectoryPath) override {};
+	void setup(const std::string&) override {}
+	void setup() override {};
 	void execute() const override {};
 	void saveProgress(const std::string& checkpointPath) const override {};
 	bool existsCheckpoint() const override { return true; };

@@ -14,5 +14,5 @@ public:
 private:
 	const int cols{ 0 };
 	const int rows{ 0 };
-	std::unique_ptr<T> pixels;
+	T* const pixels;
 };

@@ -133,8 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EdgeExtractor.hpp" />
-    <ClInclude Include="EdgeSet.hpp" />
+    <ClInclude Include="ContourExtractor.hpp" />
+    <ClInclude Include="Contour.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
     <ClInclude Include="pixel_matrix.hpp" />
@@ -152,8 +152,8 @@
     <Image Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EdgeExtractor.cpp" />
-    <ClCompile Include="EdgeSet.cpp" />
+    <ClCompile Include="ContourExtractor.cpp" />
+    <ClCompile Include="Contour.cpp" />
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractor.cpp" />
