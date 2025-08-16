@@ -4,10 +4,10 @@
 #include <memory>
 
 template<typename T>
-class pixel_matrix {
+class matrix {
 public:
-	pixel_matrix() {};
-	~pixel_matrix() {};
+	matrix() : pixels{ nullptr } {}
+	~matrix() {};
 
 	const T at(const int i, const int j) { return pixels[i][j]; }
 

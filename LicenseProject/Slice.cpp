@@ -36,14 +36,25 @@ Slice::Slice(const std::string& path) :
 { 
 }
 
-void Slice::saveCheckpoint(const std::string& folderPath)
+void Slice::process(const size_t i, const std::string path, std::vector<matrix<Settings::pixel>>& matrices)
+{
+	Slice slice{ path };
+	//matrices.at(i) = slice.convertToMatrix();
+}
+
+void Slice::saveCheckpoint(const std::filesystem::path& folderPath)
 {
 	// need a better solution because it takes too much time
-	const std::string checkpointFileID = folderPath + fileName + ".txt";
+	/*const std::filesystem::path checkpointFileID = folderPath / (fileName + ".txt");
 	std::ofstream out{ checkpointFileID };
 	out << getNumberOfColumns() << ' ' << getNumberOfRows() << '\n'
 		<< getPixelSpacingX() << ' ' << getPixelSpacingY() << '\n';
 	for (size_t i = 0; i < getNumberOfColumns() * getNumberOfRows(); ++i)
 		out << getPixelData()[i] << '\n';
-	out.close();
+	out.close();*/
+}
+
+matrix<Settings::pixel> Slice::convertToMatrix() const
+{
+	return matrix<Settings::pixel>();
 }

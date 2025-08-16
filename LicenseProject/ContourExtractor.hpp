@@ -5,19 +5,17 @@
 
 class Slice;
 
-class ContourExtractor : protected thread_pool, public IFilter
+class ContourExtractor : protected thread_pool, 
+						 public IFilter
 {
 public:
 	ContourExtractor() = default;
 	~ContourExtractor() = default;
 
-private:
-	void setup(const std::string&) override {}
-	void setup() override {};
-	void execute() const override {};
+	void execute(const std::map<std::filesystem::path, matrix<Settings::pixel>>& m) const override {};
 	void saveProgress(const std::string& checkpointPath) const override {};
-	bool existsCheckpoint() const override { return true; };
-	void loadCheckpoint(const std::string& checkpointPath) override {};
-
+	bool existsCheckpoint() const override { return true; }
+	void loadInput(IFilter* const prevFilter) override {}
+	void loadInput(const std::filesystem::path& checkpoint) override {}
 };
 

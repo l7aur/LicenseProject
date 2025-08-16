@@ -137,9 +137,10 @@
     <ClInclude Include="Contour.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
-    <ClInclude Include="pixel_matrix.hpp" />
+    <ClInclude Include="matrix.hpp" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="PixelExtractor.hpp" />
+    <ClInclude Include="Settings.hpp" />
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
     <ClInclude Include="thread_safe_queue.hpp" />

@@ -12,20 +12,17 @@ class PixelExtractor : public thread_pool,
 					   public IFilter
 {
 public:
-	PixelExtractor() = default;
+	PixelExtractor();
 	~PixelExtractor();
 
-	void setup(const std::string& workingDirectoryPath) override;
-	void setup() override {}
-	void execute() const override;
+	void execute(const std::map<std::filesystem::path, matrix<Settings::pixel>>& paths) const;
 	void saveProgress(const std::string& checkpointPath) const override;
 	bool existsCheckpoint() const override;
-	void loadCheckpoint(const std::string& checkpointPath) override;
+	void loadInput(IFilter* const prevFilter) override;
+	void loadInput(const std::filesystem::path& checkpoint) override;
 
 private:
 	std::vector<Slice*> series;
-
-	inline static std::string CHECKPOINT_PATH{ ".\\checkpoint\\preprocessing\\" };
 
 	void setupSeries(const std::string& path);
 	void populateSeriesWithCheckpoint(const std::string& path);

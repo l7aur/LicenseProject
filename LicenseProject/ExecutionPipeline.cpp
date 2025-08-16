@@ -1,9 +1,6 @@
 #include "ExecutionPipeline.hpp"
 
-ExecutionPipeline::ExecutionPipeline(const std::string path)
-	: rootFolderPath{ path }
-{
-}
+#include <filesystem>
 
 void ExecutionPipeline::addFilter(std::unique_ptr<IFilter> newFilter)
 {
@@ -11,27 +8,40 @@ void ExecutionPipeline::addFilter(std::unique_ptr<IFilter> newFilter)
 		filters.push_back(std::move(newFilter));
 }
 
-void ExecutionPipeline::setup() const
+void ExecutionPipeline::setup()
 {
+	setPaths();
+	matrices.resize(paths.size());
 	for (const auto& filter : filters)
-		filter->setup(rootFolderPath);
+		filter->setup();
 }
 
-void ExecutionPipeline::execute(const bool withCheckpoints)
+void ExecutionPipeline::executeWithCheckpoints()
 {
 	IFilter* prevFilter = nullptr;
 	for (const auto& currentFilter : filters) {
-		if (withCheckpoints && currentFilter->existsCheckpoint()) {
-			prevFilter = currentFilter.get();
-			continue;
-		}
+		currentFilter->loadInput(prevFilter);
+		//currentFilter->execute();
+		currentFilter->saveProgress("/checkpointPath");
 
-		if (withCheckpoints && prevFilter != nullptr)
-			prevFilter->loadCheckpoint("test");
-
-		currentFilter->execute();
-
-		if (withCheckpoints)
-			currentFilter->saveProgress("test");
+		prevFilter = currentFilter.get();
 	}
+}
+
+void ExecutionPipeline::executeWithoutCheckpoints()
+{
+	IFilter* prevFilter = nullptr;
+	for (const auto& currentFilter : filters) {
+		currentFilter->loadInput(prevFilter);
+		//currentFilter->execute();
+
+		prevFilter = currentFilter.get();
+	}
+}
+
+void ExecutionPipeline::setPaths()
+{
+	for (const auto& entry : std::filesystem::directory_iterator(rootFolderPath))
+		if (entry.is_regular_file())
+			paths.push_back(entry.path().string());
 }
