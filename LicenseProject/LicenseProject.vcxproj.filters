@@ -61,12 +61,6 @@
     <ClInclude Include="PixelExtractor.hpp">
       <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Slice.hpp">
-      <Filter>Filters\DICOM Pixel Extractor\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Contour.hpp">
-      <Filter>Filters\Edge Extractor\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="ContourExtractor.hpp">
       <Filter>Filters\Edge Extractor\Headers</Filter>
     </ClInclude>
@@ -85,11 +79,11 @@
     <ClInclude Include="IFilter.hpp">
       <Filter>Filters</Filter>
     </ClInclude>
-    <ClInclude Include="matrix.hpp">
-      <Filter>Data Structures</Filter>
-    </ClInclude>
     <ClInclude Include="Settings.hpp">
       <Filter>Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Slice.hpp">
+      <Filter>Pipeline</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,19 +95,16 @@
     <ClCompile Include="PixelExtractor.cpp">
       <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Slice.cpp">
-      <Filter>Filters\DICOM Pixel Extractor\Sources</Filter>
-    </ClCompile>
     <ClCompile Include="ContourExtractor.cpp">
-      <Filter>Filters\Edge Extractor\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Contour.cpp">
       <Filter>Filters\Edge Extractor\Sources</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>MAIN</Filter>
     </ClCompile>
     <ClCompile Include="ExecutionPipeline.cpp">
+      <Filter>Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Slice.cpp">
       <Filter>Pipeline</Filter>
     </ClCompile>
   </ItemGroup>

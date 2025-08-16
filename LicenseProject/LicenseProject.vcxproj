@@ -134,10 +134,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ContourExtractor.hpp" />
-    <ClInclude Include="Contour.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
-    <ClInclude Include="matrix.hpp" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="PixelExtractor.hpp" />
     <ClInclude Include="Settings.hpp" />
@@ -154,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContourExtractor.cpp" />
-    <ClCompile Include="Contour.cpp" />
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractor.cpp" />
