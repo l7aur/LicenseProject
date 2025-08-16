@@ -4,7 +4,7 @@
 #include "Settings.hpp"
 
 int main() {
-	ExecutionPipeline pipeline{"../dicom_data/Series 201 [CT - CRANE SANS]/"};
+	ExecutionPipeline pipeline{"../dicom_data/test/"};
 
 	pipeline.addFilter(std::make_unique<PixelExtractor>());
 	pipeline.addFilter(std::make_unique<ContourExtractor>());

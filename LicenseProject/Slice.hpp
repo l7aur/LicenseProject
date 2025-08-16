@@ -16,7 +16,7 @@ public:
 
 	[[nodiscard]] const float getPixelSpacingX() const { return pixelSpacing.first; }
 	[[nodiscard]] const float getPixelSpacingY() const { return pixelSpacing.second; }
-	[[nodiscard]] const int16_t* getPixels() const { return (int16_t*)img->getOutputData(2 * 8); }
+	[[nodiscard]] const uint16_t* getPixels() const { return (uint16_t*)img->getOutputData(16); }
 	[[nodiscard]] const unsigned long getWidth() const { return img->getWidth(); }
 	[[nodiscard]] const unsigned long getHeight() const { return img->getHeight(); }
 	

@@ -18,23 +18,15 @@ void ExecutionPipeline::addFilter(std::unique_ptr<IFilter> newFilter)
 
 void ExecutionPipeline::executeWithCheckpoints()
 {
-	IFilter* prevFilter = nullptr;
 	for (const auto& currentFilter : filters) {
-		currentFilter->loadInput(prevFilter);
-		//currentFilter->execute();
-		currentFilter->saveProgress("/checkpointPath");
-
-		prevFilter = currentFilter.get();
+		//loadInput(prevFilter);
+		currentFilter->execute(workspace);
+		//saveProgress("/checkpointPath");
 	}
 }
 
 void ExecutionPipeline::executeWithoutCheckpoints()
 {
-	IFilter* prevFilter = nullptr;
-	for (const auto& currentFilter : filters) {
-		currentFilter->loadInput(prevFilter);
+	for (const auto& currentFilter : filters)
 		currentFilter->execute(workspace);
-
-		prevFilter = currentFilter.get();
-	}
 }
