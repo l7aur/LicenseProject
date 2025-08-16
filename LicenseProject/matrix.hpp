@@ -1,18 +1,22 @@
 #pragma once
 
-#include <cstdint>
+#include <dcmtk/config/osconfig.h>
+#include <dcmtk/dcmimgle/dcmimage.h>
+#include <dcmtk/dcmdata/dcfilefo.h>
+#include <dcmtk/dcmdata/dctk.h>
+
+#include <filesystem>
 #include <memory>
 
 template<typename T>
 class matrix {
 public:
-	matrix() : pixels{ nullptr } {}
-	~matrix() {};
+	matrix() = default;
+	~matrix() { delete pixels; }
 
 	const T at(const int i, const int j) { return pixels[i][j]; }
-
 private:
-	const int cols{ 0 };
-	const int rows{ 0 };
-	T* const pixels;
+	int cols{ 0 };
+	int rows{ 0 };
+	T* pixels{ nullptr };
 };

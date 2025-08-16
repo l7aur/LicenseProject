@@ -9,8 +9,6 @@ int main() {
 	pipeline.addFilter(std::make_unique<PixelExtractor>());
 	pipeline.addFilter(std::make_unique<ContourExtractor>());
 
-	pipeline.setup();
-
 	Settings::withCheckpoints
 		? pipeline.executeWithCheckpoints()
 		: pipeline.executeWithoutCheckpoints();

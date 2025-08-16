@@ -12,10 +12,9 @@ public:
 	ContourExtractor() = default;
 	~ContourExtractor() = default;
 
-	void execute(const std::map<std::filesystem::path, matrix<Settings::pixel>>& m) const override {};
+	void execute(std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>>& m) override {};
 	void saveProgress(const std::string& checkpointPath) const override {};
 	bool existsCheckpoint() const override { return true; }
 	void loadInput(IFilter* const prevFilter) override {}
-	void loadInput(const std::filesystem::path& checkpoint) override {}
 };
 

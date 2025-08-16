@@ -2,32 +2,29 @@
 
 #include "Settings.hpp"
 #include "IFilter.hpp"
-#include "matrix.hpp"
+#include "Slice.hpp"
 
 #include <list>
 #include <string>
 #include <memory>
 #include <vector>
+#include <filesystem>
 
 class ExecutionPipeline
 {
 public:
-	ExecutionPipeline(const std::string path) : rootFolderPath{ path } {}
+	ExecutionPipeline(const std::filesystem::path dir);
 	~ExecutionPipeline() = default;
 	ExecutionPipeline(ExecutionPipeline&) = delete;
 	void operator=(const ExecutionPipeline&) = delete;
 
 	void addFilter(std::unique_ptr<IFilter> newFilter);
-	void setup();
 	void executeWithCheckpoints();
 	void executeWithoutCheckpoints();
 
 private:
-	std::vector<matrix<Settings::pixel>> matrices{};
-	std::vector<std::string> paths{};
+	std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>> workspace;
 	std::list<std::unique_ptr<IFilter>> filters{};
-	const std::string rootFolderPath{ "" };
-
-	void setPaths();
+	const std::filesystem::path directory{ "" };
 };
 
