@@ -73,6 +73,9 @@
     <ClInclude Include="ContourExtractor.hpp">
       <Filter>Filters\Contour Extractor</Filter>
     </ClInclude>
+    <ClInclude Include="LocalThresholder.hpp">
+      <Filter>Filters\Contour Extractor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon.ico">
@@ -94,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="ContourExtractor.cpp">
       <Filter>Filters\Contour Extractor</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalThresholder.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

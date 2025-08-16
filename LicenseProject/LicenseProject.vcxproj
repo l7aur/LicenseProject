@@ -136,6 +136,7 @@
     <ClInclude Include="ContourExtractor.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
+    <ClInclude Include="LocalThresholder.hpp" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="PixelExtractor.hpp" />
     <ClInclude Include="Settings.hpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="ContourExtractor.cpp" />
     <ClCompile Include="ExecutionPipeline.cpp" />
+    <ClCompile Include="LocalThresholder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractor.cpp" />
     <ClCompile Include="Slice.cpp" />
