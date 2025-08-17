@@ -12,6 +12,6 @@ public:
 	ContourExtractor();
 	~ContourExtractor() = default;
 
-	void execute(std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>>& wspace) override;
+	void execute(const std::vector<std::filesystem::path>& paths, workspace& wspace) override;
 };
 

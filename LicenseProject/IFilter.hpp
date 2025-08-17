@@ -3,7 +3,6 @@
 #include "Settings.hpp"
 
 #include <filesystem>
-#include <memory>
 #include <map>
 
 class Slice;
@@ -13,7 +12,7 @@ public:
 	IFilter() = default;
 	virtual ~IFilter() = default;
 
-	virtual void execute(std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>>&) = 0;
+	virtual void execute(const std::vector<std::filesystem::path>&, workspace&) = 0;
 
 	const std::filesystem::path getWorkingDir() const { return workingDirectory; }
 

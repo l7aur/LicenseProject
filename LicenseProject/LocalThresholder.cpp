@@ -5,15 +5,16 @@
 
 #include <opencv2/opencv.hpp>
 
-std::function<void()> LocalThresholder::execute(std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>>& wspace, int index)
+std::function<void()> LocalThresholder::execute(workspace& wspace, size_t index)
 {
     return [&wspace, index]() {
         constexpr int KERNEL_SIZE = 5;
         constexpr int K_HALF = KERNEL_SIZE / 2;
 
-        const int height = static_cast<int>(wspace[index].second->getHeight());
-        const int width = static_cast<int>(wspace[index].second->getWidth());
-        const pixel* const pxd = wspace[index].second->getPixels();
+        Slice& s = std::get<Slice>(*wspace[index]);
+        const int height = static_cast<int>(s.getHeight());
+        const int width = static_cast<int>(s.getWidth());
+        pixel* const pxd = s.getPixels();
 
         std::unique_ptr<pixel[]> newPxd = std::make_unique<pixel[]>(static_cast<size_t>(height * width));
         if (newPxd == nullptr)
@@ -34,14 +35,14 @@ std::function<void()> LocalThresholder::execute(std::vector<std::pair<std::files
                 for (int q = -K_HALF; q <= K_HALF; ++q)
                     for (int p = -K_HALF; p <= K_HALF; ++p)
                         newPxd.get()[(x + p) * width + x + p] = (pxd[(x + p) * width + x + p] < threshold)
-                            ? UINT16_MAX 
-                            : static_cast<pixel>(0);
+                            ? static_cast<pixel>(pixel_max)
+                            : static_cast<pixel>(pixel_min);
             }
 
-        cv::Mat m{ (int)height, (int)width, CV_16UC1, newPxd.get() };
+        cv::Mat m{ (int)height, (int)width, CV_16UC1, pxd };
         cv::imshow("haha", m);
         cv::waitKey(0);
 
-        wspace[index].second->setPixels(std::move(newPxd));
+        //s.setPixels(std::move(newPxd));
     };
 }

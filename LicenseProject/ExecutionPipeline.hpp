@@ -1,14 +1,13 @@
 #pragma once
 
 #include "Settings.hpp"
-#include "IFilter.hpp"
 #include "Slice.hpp"
 
 #include <list>
 #include <string>
-#include <memory>
-#include <vector>
 #include <filesystem>
+
+class IFilter;
 
 class ExecutionPipeline
 {
@@ -23,7 +22,8 @@ public:
 	void executeWithoutCheckpoints();
 
 private:
-	std::vector<std::pair<std::filesystem::path, std::unique_ptr<Slice>>> workspace;
+	workspace wspace;
+	std::vector<std::filesystem::path> paths;
 	std::list<std::unique_ptr<IFilter>> filters{};
 	const std::filesystem::path directory{ "" };
 };
