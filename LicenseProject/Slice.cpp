@@ -24,6 +24,10 @@ namespace {
 Slice::Slice(const std::filesystem::path& p)
 	: file{ p }
 {
-	img = std::make_unique<DicomImage>(p.string().c_str());
+	DicomImage img{ p.string().c_str() };
+	width = img.getWidth();
+	height = img.getHeight();
+	pixels = std::make_unique<pixel[]>(static_cast<size_t>(width * height));
+	std::memcpy(pixels.get(), img.getOutputData(8 * sizeof(pixel)), static_cast<size_t>(width * height) * sizeof(pixel));
 	pixelSpacing = fetchPixelSpacing(p.string());
 }
