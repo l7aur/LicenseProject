@@ -34,15 +34,15 @@ std::function<void()> LocalThresholder::execute(workspace& wspace, size_t index)
 
                 for (int q = -K_HALF; q <= K_HALF; ++q)
                     for (int p = -K_HALF; p <= K_HALF; ++p)
-                        newPxd.get()[(x + p) * width + x + p] = (pxd[(x + p) * width + x + p] < threshold)
-                            ? static_cast<pixel>(pixel_max)
-                            : static_cast<pixel>(pixel_min);
+                        newPxd.get()[(y + q) * width + x + p] = (pxd[(y + q) * width + x + p] < threshold)
+                            ? PIXEL_MIN
+                            : PIXEL_MAX;
             }
 
-        cv::Mat m{ (int)height, (int)width, CV_16UC1, pxd };
+        cv::Mat m{ (int)height, (int)width, CV_16UC1, newPxd.get() };
         cv::imshow("haha", m);
         cv::waitKey(0);
 
-        //s.setPixels(std::move(newPxd));
+        s.setPixels(std::move(newPxd));
     };
 }
