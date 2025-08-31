@@ -26,21 +26,9 @@
     <Filter Include="Filters\Pixel Extractor">
       <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Contour Extractor">
-      <UniqueIdentifier>{4048b02a-06f8-40cf-a0ad-75f5bfc09643}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Filters\3DPoint Extractor">
-      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Contour Extractor\Thresholders">
-      <UniqueIdentifier>{767e94f0-01bd-4d52-a41a-14fbecb8134d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Contour Extractor\Thresholders\Local">
-      <UniqueIdentifier>{e8c4b441-a2f4-4aa7-9c08-a6efe56d00b3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Workspace">
       <UniqueIdentifier>{9f6cb1cb-297c-40d7-b68c-ae9155befaaf}</UniqueIdentifier>
@@ -50,6 +38,12 @@
     </Filter>
     <Filter Include="Miscellaneous">
       <UniqueIdentifier>{c903169b-c472-47ad-874c-e43e858bf649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Canny Edge Detector">
+      <UniqueIdentifier>{767e94f0-01bd-4d52-a41a-14fbecb8134d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Point Extractor">
+      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,17 +73,17 @@
     <ClInclude Include="Settings.hpp">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="PixelExtractor.hpp">
+    <ClInclude Include="PixelExtractorFilter.hpp">
       <Filter>Filters\Pixel Extractor</Filter>
-    </ClInclude>
-    <ClInclude Include="ContourExtractor.hpp">
-      <Filter>Filters\Contour Extractor</Filter>
-    </ClInclude>
-    <ClInclude Include="LocalThresholder.hpp">
-      <Filter>Filters\Contour Extractor\Thresholders\Local</Filter>
     </ClInclude>
     <ClInclude Include="Slice.hpp">
       <Filter>Workspace\Slice</Filter>
+    </ClInclude>
+    <ClInclude Include="CannyEdgeDetectorFilter.hpp">
+      <Filter>Filters\Canny Edge Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="PointExtractorFilter.hpp">
+      <Filter>Filters\Point Extractor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,17 +98,17 @@
     <ClCompile Include="ExecutionPipeline.cpp">
       <Filter>Pipeline</Filter>
     </ClCompile>
-    <ClCompile Include="PixelExtractor.cpp">
+    <ClCompile Include="PixelExtractorFilter.cpp">
       <Filter>Filters\Pixel Extractor</Filter>
-    </ClCompile>
-    <ClCompile Include="ContourExtractor.cpp">
-      <Filter>Filters\Contour Extractor</Filter>
-    </ClCompile>
-    <ClCompile Include="LocalThresholder.cpp">
-      <Filter>Filters\Contour Extractor\Thresholders\Local</Filter>
     </ClCompile>
     <ClCompile Include="Slice.cpp">
       <Filter>Workspace\Slice</Filter>
+    </ClCompile>
+    <ClCompile Include="CannyEdgeDetectorFilter.cpp">
+      <Filter>Filters\Canny Edge Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="PointExtractorFilter.cpp">
+      <Filter>Filters\Point Extractor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

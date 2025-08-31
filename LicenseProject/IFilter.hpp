@@ -2,10 +2,8 @@
 
 #include "Settings.hpp"
 
-#include <filesystem>
-#include <map>
-
 class Slice;
+namespace std::filesystem { class path; };
 
 class IFilter {
 public:
@@ -14,8 +12,8 @@ public:
 
 	virtual void execute(const std::vector<std::filesystem::path>&, workspace&) = 0;
 
-	const std::filesystem::path getWorkingDir() const { return workingDirectory; }
+	const std::string_view& getCachePath() const { return cachePath; }
 
 protected:
-	std::filesystem::path workingDirectory;
+	std::string_view cachePath;
 };

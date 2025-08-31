@@ -4,6 +4,7 @@
 #include "Slice.hpp"
 
 #include <list>
+#include <vector>
 #include <string>
 #include <filesystem>
 
@@ -18,8 +19,9 @@ public:
 	void operator=(const ExecutionPipeline&) = delete;
 
 	void addFilter(std::unique_ptr<IFilter> newFilter);
-	void executeWithCheckpoints();
-	void executeWithoutCheckpoints();
+	void executeWithCaching();
+	void execute();
+	void display() const;
 
 private:
 	workspace wspace;

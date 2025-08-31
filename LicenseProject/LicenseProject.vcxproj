@@ -133,12 +133,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ContourExtractor.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
-    <ClInclude Include="LocalThresholder.hpp" />
+    <ClInclude Include="CannyEdgeDetectorFilter.hpp" />
+    <ClInclude Include="PointExtractorFilter.hpp" />
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="PixelExtractor.hpp" />
+    <ClInclude Include="PixelExtractorFilter.hpp" />
     <ClInclude Include="Settings.hpp" />
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
@@ -152,11 +152,11 @@
     <Image Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ContourExtractor.cpp" />
     <ClCompile Include="ExecutionPipeline.cpp" />
-    <ClCompile Include="LocalThresholder.cpp" />
+    <ClCompile Include="CannyEdgeDetectorFilter.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PixelExtractor.cpp" />
+    <ClCompile Include="PixelExtractorFilter.cpp" />
+    <ClCompile Include="PointExtractorFilter.cpp" />
     <ClCompile Include="Slice.cpp" />
   </ItemGroup>
   <ItemGroup>
