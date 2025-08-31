@@ -45,6 +45,9 @@
     <Filter Include="Settings">
       <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Workspace\PointSet">
+      <UniqueIdentifier>{3308b0ca-31c6-4391-b2e0-a5c406542120}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LicenseProject.rc">
@@ -88,6 +91,12 @@
     <ClInclude Include="Types.hpp">
       <Filter>Settings</Filter>
     </ClInclude>
+    <ClInclude Include="PointSet.hpp">
+      <Filter>Workspace\PointSet</Filter>
+    </ClInclude>
+    <ClInclude Include="IWorkspace.hpp">
+      <Filter>Workspace</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon.ico">
@@ -112,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="PointExtractorFilter.cpp">
       <Filter>Filters\Point Extractor</Filter>
+    </ClCompile>
+    <ClCompile Include="PointSet.cpp">
+      <Filter>Workspace\PointSet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

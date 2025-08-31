@@ -31,3 +31,8 @@ Slice::Slice(const std::filesystem::path& p)
 	std::memcpy(pixels.get(), img.getOutputData(8 * sizeof(pixel)), static_cast<size_t>(width * height) * sizeof(pixel));
 	pixelSpacing = fetchPixelSpacing(p.string());
 }
+
+void Slice::serialize(const std::filesystem::path& wherePath) const
+{
+	// TODO
+}

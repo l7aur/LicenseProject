@@ -25,7 +25,7 @@ int main() {
 		? pipeline.executeWithCaching()
 		: pipeline.execute();
 
-	// Display resulted images
+	// Display resulted images if workspace contains images
 	pipeline.display();
 
 	return 0;

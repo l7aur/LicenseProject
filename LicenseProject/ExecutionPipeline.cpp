@@ -13,7 +13,7 @@ ExecutionPipeline::ExecutionPipeline(const std::filesystem::path seriesPath_)
 	for (const auto& entry : std::filesystem::directory_iterator(seriesPath))
 		if (entry.is_regular_file())
 			paths.push_back(entry.path());
-	wspace.resize(paths.size());
+	wspaces.resize(paths.size());
 }
 
 void ExecutionPipeline::addFilter(std::unique_ptr<IFilter> newFilter)
@@ -26,21 +26,25 @@ void ExecutionPipeline::executeWithCaching()
 {
 	for (const auto& currentFilter : filters) {
 		//loadInput(prevFilter);
-		currentFilter->execute(paths, wspace);
-		//saveProgress("/checkpointPath");
+		currentFilter->execute(paths, wspaces);
+		cache(currentFilter->getCachePath());
 	}
 }
 
 void ExecutionPipeline::execute()
 {
 	for (const auto& currentFilter : filters)
-		currentFilter->execute(paths, wspace);
+		currentFilter->execute(paths, wspaces);
 }
 
 void ExecutionPipeline::display() const
 {
-	for (int i = 0; i < wspace.size(); ++i) {
-		Slice& s = std::get<Slice>(*wspace.at(i));
+	if (wspaces.empty())
+		return;
+	if (!std::holds_alternative<Slice>(*wspaces.at(0)))
+		return;
+	for (int i = 0; i < wspaces.size(); ++i) {
+		Slice& s = std::get<Slice>(*wspaces.at(i));
 		cv::Mat m{
 			static_cast<int>(s.getHeight()),
 			static_cast<int>(s.getWidth()),
@@ -50,4 +54,10 @@ void ExecutionPipeline::display() const
 		cv::imshow("image" + std::to_string(i + 1), m);
 		cv::waitKey(0);
 	}
+}
+
+void ExecutionPipeline::cache(const std::string_view& cachePath) const
+{
+	for (const auto& wspace : wspaces)
+		std::visit([&cachePath](const auto& w) { w.serialize(cachePath); }, *wspace);
 }

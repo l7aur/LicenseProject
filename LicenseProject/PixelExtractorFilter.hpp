@@ -10,8 +10,6 @@ public:
 	PixelExtractorFilter(const std::string_view& cachePath_);
 	~PixelExtractorFilter() = default;
 
-	void execute(const std::vector<std::filesystem::path>& paths, workspace& wspace) override;
-
-private:
+	void execute(const std::vector<std::filesystem::path>& paths, std::vector<workspace>& wspaces) override;
 };
 

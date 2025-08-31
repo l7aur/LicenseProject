@@ -1,4 +1,5 @@
 #include "CannyEdgeDetectorFilter.hpp"
+#include "PointSet.hpp"
 #include "Slice.hpp"
 
 #include <windows.h>
@@ -24,12 +25,12 @@ CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
     cachePath = cachePath_;
 }
 
-void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& paths, workspace& wspace)
+void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<workspace>& wspaces)
 {
-    for (size_t i = 0; i < wspace.size(); ++i)
-        submit([this, &wspace, i]
+    for (size_t i = 0; i < wspaces.size(); ++i)
+        submit([this, &wspaces, i]
             {
-                Slice& s = std::get<Slice>(*wspace.at(i));
+                Slice& s = std::get<Slice>(*wspaces.at(i));
                 cv::Mat m{
                     static_cast<int>(s.getHeight()),
                     static_cast<int>(s.getWidth()),

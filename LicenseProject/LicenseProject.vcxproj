@@ -136,7 +136,9 @@
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="IFilter.hpp" />
     <ClInclude Include="CannyEdgeDetectorFilter.hpp" />
+    <ClInclude Include="IWorkspace.hpp" />
     <ClInclude Include="PointExtractorFilter.hpp" />
+    <ClInclude Include="PointSet.hpp" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="PixelExtractorFilter.hpp" />
     <ClInclude Include="Settings.hpp" />
@@ -158,6 +160,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractorFilter.cpp" />
     <ClCompile Include="PointExtractorFilter.cpp" />
+    <ClCompile Include="PointSet.cpp" />
     <ClCompile Include="Slice.cpp" />
   </ItemGroup>
   <ItemGroup>

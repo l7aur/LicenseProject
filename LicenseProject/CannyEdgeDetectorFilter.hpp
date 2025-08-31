@@ -16,7 +16,7 @@ public:
 	);
 	~CannyEdgeDetectorFilter() = default;
 
-	void execute(const std::vector<std::filesystem::path>&, workspace&) override;
+	void execute(const std::vector<std::filesystem::path>&, std::vector<workspace>&) override;
 	
 private:
 	const int minimumIntensity, maximumIntensity;
