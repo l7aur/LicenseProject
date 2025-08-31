@@ -1,9 +1,9 @@
 #include "PixelExtractorFilter.hpp"
 #include "Slice.hpp"
 
-PixelExtractorFilter::PixelExtractorFilter()
+PixelExtractorFilter::PixelExtractorFilter(const std::string_view& cachePath_)
 {
-	cachePath = Settings::PIXEL_EXTRACTOR_CACHE;
+	cachePath = cachePath_;
 }
 
 void PixelExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, workspace& wspace)

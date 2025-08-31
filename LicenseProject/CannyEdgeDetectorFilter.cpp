@@ -10,15 +10,24 @@
 #include <opencv2/imgproc.hpp>
 
 
-CannyEdgeDetectorFilter::CannyEdgeDetectorFilter()
+CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
+    const int minIntensity,
+    const int maxIntensity,
+    const int apertureSize_,
+    const bool accurateGrad,
+    const std::string_view& cachePath_
+)
+    :
+    minimumIntensity{ minIntensity }, maximumIntensity{ maxIntensity },
+    apertureSize{ apertureSize_ }, useMoreAccurateGradient{ accurateGrad }
 {
-    cachePath = Settings::CANNY_CACHE;
+    cachePath = cachePath_;
 }
 
 void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& paths, workspace& wspace)
 {
     for (size_t i = 0; i < wspace.size(); ++i)
-        submit([i, &wspace]
+        submit([this, &wspace, i]
             {
                 Slice& s = std::get<Slice>(*wspace.at(i));
                 cv::Mat m{
@@ -28,7 +37,7 @@ void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& 
                     s.getPixels()
                 };
                 cv::Mat output{};
-                cv::Canny(m, output, Settings::CANNY_MINIMUM_INTENSITY, Settings::CANNY_MAXIMUM_INTENSITY, Settings::CANNY_APERTURE_SIZE, Settings::CANNY_ACCURATE_GRADIENT);
+                cv::Canny(m, output, minimumIntensity, maximumIntensity, apertureSize, useMoreAccurateGradient);
                 size_t bufferSize = (size_t)output.rows * (size_t)output.cols * output.elemSize();
                 std::unique_ptr<pixel[]> buffer = std::make_unique<pixel[]>(bufferSize);
                 std::memcpy(buffer.get(), output.data, bufferSize);

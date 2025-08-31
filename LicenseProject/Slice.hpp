@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Settings.hpp"
+#include "Types.hpp"
 
 #include <dcmtk/config/osconfig.h>
 #include <dcmtk/dcmimgle/dcmimage.h>

@@ -7,10 +7,18 @@
 int main() {
 
 	// Create execution pipeline
-	ExecutionPipeline pipeline{"../dicom_data/test/"};
+	ExecutionPipeline pipeline{Settings::EXECUTION_PIPELINE_SERIES_PATH};
 
-	pipeline.addFilter(std::make_unique<PixelExtractorFilter>());
-	pipeline.addFilter(std::make_unique<CannyEdgeDetectorFilter>());
+	// Add filters
+	pipeline.addFilter(std::make_unique<PixelExtractorFilter>(Settings::PIXEL_EXTRACTOR_CACHE));
+	pipeline.addFilter(std::make_unique<CannyEdgeDetectorFilter>(
+		Settings::CANNY_MINIMUM_INTENSITY,
+		Settings::CANNY_MAXIMUM_INTENSITY,
+		Settings::CANNY_APERTURE_SIZE,
+		Settings::CANNY_ACCURATE_GRADIENT,
+		Settings::CANNY_CACHE
+	));
+	pipeline.addFilter(std::make_unique<PointExtractorFilter>(Settings::POINT_EXTRACTOR_CACHE));
 
 	// Execute pipeline
 	Settings::USE_CACHING

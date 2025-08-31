@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Settings.hpp"
+#include "Types.hpp"
 
-class Slice;
+#include <string_view>
+
 namespace std::filesystem { class path; };
 
 class IFilter {

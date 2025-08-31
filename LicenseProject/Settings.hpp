@@ -1,23 +1,11 @@
 #pragma once
 
-#include <memory>
-#include <vector>
-#include <variant>
 #include <string_view>
-#include <cstdint>
-
-class Slice;
-
-using types = std::variant<Slice, int>;
-using workspace = std::vector<std::unique_ptr<types>>;
-using pixel = uint8_t;
-
-#define PIXEL_MAX static_cast<pixel>(UINT16_MAX)
-#define PIXEL_MIN static_cast<pixel>(0)
 
 namespace Settings {
 	// Pipeline
-	const bool USE_CACHING{ false };
+	constexpr bool USE_CACHING{ false };
+	constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/test/" };
 
 	// PixelExtractorFilter
 	constexpr std::string_view PIXEL_EXTRACTOR_CACHE{ "./cache/pixel_extractor_filter/" };

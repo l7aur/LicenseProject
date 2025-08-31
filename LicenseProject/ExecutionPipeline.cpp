@@ -7,10 +7,10 @@
 
 #include <variant>
 
-ExecutionPipeline::ExecutionPipeline(const std::filesystem::path dir)
-	: directory{ dir } 
+ExecutionPipeline::ExecutionPipeline(const std::filesystem::path seriesPath_)
+	: seriesPath{ seriesPath_ } 
 {
-	for (const auto& entry : std::filesystem::directory_iterator(directory))
+	for (const auto& entry : std::filesystem::directory_iterator(seriesPath))
 		if (entry.is_regular_file())
 			paths.push_back(entry.path());
 	wspace.resize(paths.size());

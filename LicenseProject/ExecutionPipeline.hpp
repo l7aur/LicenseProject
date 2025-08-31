@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Settings.hpp"
 #include "Slice.hpp"
 
 #include <list>
@@ -13,7 +12,7 @@ class IFilter;
 class ExecutionPipeline
 {
 public:
-	ExecutionPipeline(const std::filesystem::path dir);
+	ExecutionPipeline(const std::filesystem::path seriesPath_);
 	~ExecutionPipeline() = default;
 	ExecutionPipeline(ExecutionPipeline&) = delete;
 	void operator=(const ExecutionPipeline&) = delete;
@@ -27,6 +26,6 @@ private:
 	workspace wspace;
 	std::vector<std::filesystem::path> paths;
 	std::list<std::unique_ptr<IFilter>> filters{};
-	const std::filesystem::path directory{ "" };
+	const std::filesystem::path seriesPath;
 };
 

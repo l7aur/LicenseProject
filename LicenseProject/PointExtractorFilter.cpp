@@ -1,6 +1,10 @@
 #include "PointExtractorFilter.hpp"
 
-PointExtractorFilter::PointExtractorFilter()
+PointExtractorFilter::PointExtractorFilter(const std::string_view& cachePath_)
 {
-	cachePath = Settings::POINT_EXTRACTOR_CACHE;
+	cachePath = cachePath_;
+}
+
+void PointExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, workspace& wspace)
+{
 }

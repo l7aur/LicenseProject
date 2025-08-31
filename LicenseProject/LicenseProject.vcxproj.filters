@@ -20,9 +20,6 @@
     <Filter Include="Pipeline">
       <UniqueIdentifier>{6e96e677-87ad-47b7-87e3-6ebec4c5c252}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Settings">
-      <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Filters\Pixel Extractor">
       <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
     </Filter>
@@ -44,6 +41,9 @@
     </Filter>
     <Filter Include="Filters\Point Extractor">
       <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Settings">
+      <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="PointExtractorFilter.hpp">
       <Filter>Filters\Point Extractor</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.hpp">
+      <Filter>Settings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
