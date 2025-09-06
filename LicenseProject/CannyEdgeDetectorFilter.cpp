@@ -44,5 +44,4 @@ void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& 
                 std::memcpy(buffer.get(), output.data, bufferSize);
                 s.setPixels(std::move(buffer));
             });
-    waitForFinish();
 }

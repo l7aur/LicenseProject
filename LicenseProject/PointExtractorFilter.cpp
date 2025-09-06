@@ -22,5 +22,4 @@ void PointExtractorFilter::execute(const std::vector<std::filesystem::path>& pat
 							ps.add({ x, y });
 				wspaces[i] = std::make_unique<types>(std::move(ps));
 			});
-	waitForFinish();
 }

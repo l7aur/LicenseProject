@@ -3,8 +3,7 @@
 #include "IFilter.hpp"
 #include "thread_pool.hpp"
 
-class CannyEdgeDetectorFilter : protected thread_pool,
-								public IFilter
+class CannyEdgeDetectorFilter : public IFilter
 {
 public:
 	CannyEdgeDetectorFilter(

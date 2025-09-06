@@ -16,5 +16,4 @@ void PixelExtractorFilter::execute(const std::vector<std::filesystem::path>& pat
 				wspaces[i] = std::make_unique<types>(std::move(s)); 
 			}
 		);
-	waitForFinish();
 }

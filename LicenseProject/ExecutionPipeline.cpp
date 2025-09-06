@@ -26,15 +26,20 @@ void ExecutionPipeline::executeWithCaching()
 {
 	for (const auto& currentFilter : filters) {
 		//loadInput(prevFilter);
+		currentFilter->start();
 		currentFilter->execute(paths, wspaces);
 		cache(currentFilter->getCachePath());
+		currentFilter->waitForFinish();
 	}
 }
 
 void ExecutionPipeline::execute()
 {
-	for (const auto& currentFilter : filters)
+	for (const auto& currentFilter : filters) {
+		currentFilter->start();
 		currentFilter->execute(paths, wspaces);
+		currentFilter->waitForFinish();
+	}
 }
 
 void ExecutionPipeline::display() const

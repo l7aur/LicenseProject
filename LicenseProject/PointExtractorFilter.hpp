@@ -3,8 +3,7 @@
 #include "IFilter.hpp"
 #include "thread_pool.hpp"
 
-class PointExtractorFilter : protected thread_pool, 
-							 public IFilter
+class PointExtractorFilter : public IFilter
 {
 public:
 	PointExtractorFilter(const std::string_view& cachePath_);

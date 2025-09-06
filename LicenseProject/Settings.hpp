@@ -4,7 +4,7 @@
 
 namespace Settings {
 	// Pipeline
-	constexpr bool USE_CACHING{ true };
+	constexpr bool USE_CACHING{ false };
 	constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/test/" };
 
 	// PixelExtractorFilter

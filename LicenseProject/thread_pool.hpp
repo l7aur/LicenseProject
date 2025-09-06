@@ -7,10 +7,22 @@
 
 class thread_pool {
 public:
-	thread_pool() noexcept(false)
-		: isDone{ false } {
+	thread_pool() noexcept(true)
+		: isDone{ false } 
+	{
+	}
+
+	~thread_pool() {
+		isDone = true;
+
+		for (size_t i = 0; i < threads.size(); ++i)
+			if (threads.at(i).joinable())
+				threads.at(i).join();
+	}
+
+	void start() {
 		try {
-			const size_t threadCount = std::thread::hardware_concurrency() / 2;
+			const size_t threadCount = std::thread::hardware_concurrency();
 			for (size_t i = 0; i < threadCount; ++i)
 				threads.push_back(std::thread(&thread_pool::worker_thread, this));
 		}
@@ -18,10 +30,6 @@ public:
 			isDone = true;
 			throw e;
 		}
-	}
-
-	~thread_pool() {
-		waitForFinish();
 	}
 
 	template<typename FunctionType>

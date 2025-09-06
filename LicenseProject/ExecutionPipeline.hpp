@@ -14,7 +14,7 @@ class ExecutionPipeline
 {
 public:
 	ExecutionPipeline(const std::filesystem::path seriesPath_);
-	~ExecutionPipeline() = default; // TODO crashes at end of execution
+	~ExecutionPipeline() = default;
 	ExecutionPipeline(ExecutionPipeline&) = delete;
 	void operator=(const ExecutionPipeline&) = delete;
 
