@@ -4,8 +4,8 @@
 #include <fstream>
 #include <filesystem>
 
-PointSet::PointSet(const space_point tlhc_, const float pixSpacingX, const float pixSpacingY)
-	: tlhc{ tlhc_ }, pixelSpacingX{ pixSpacingX }, pixelSpacingY{ pixSpacingY }
+PointSet::PointSet(const std::string& uid_, const space_point tlhc_, const float pixSpacingX, const float pixSpacingY)
+	: uid{uid_}, tlhc{ tlhc_ }, pixelSpacingX{ pixSpacingX }, pixelSpacingY{ pixSpacingY }
 {
 }
 
@@ -24,8 +24,7 @@ void PointSet::add(const image_point p)
 
 void PointSet::serialize(const std::filesystem::path& wherePath) const
 {
-	// TODO fix cache path for an image
-	const std::filesystem::path filePath = wherePath / ("pointset_" + std::to_string(std::hash<std::thread::id>{}(std::this_thread::get_id())) + ".txt");
+	const std::filesystem::path filePath = wherePath / (uid + ".txt");
 	std::ofstream fout{ filePath };
 	fout << points.size() << '\n';
 	fout << tlhc.x << ',' << tlhc.y << ',' << tlhc.z << '\n';
