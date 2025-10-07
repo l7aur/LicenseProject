@@ -12,12 +12,30 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add sources
 set(SOURCES
-    "img2obj/"
+    "img2obj/Core/ExecutionPipeline.cpp"
+    "img2obj/DAO/PointSet.cpp"
+    "img2obj/DAO/Slice.cpp"
+    "img2obj/Filters/CannyEdge/CannyEdgeFilter.cpp"
+    "img2obj/Filters/PixelExtractor/PixelExtractorFilter.cpp"
+    "img2obj/Filters/PointExtractor/PointExtractorFilter.cpp"
+    "img2obj/Main/main.cpp"
 )
 
 # Add headers
 set(HEADERS
-    "img2obj/"
+    "img2obj/Core/ExecutionPipeline.hpp"
+    "img2obj/DAO/PointSet.hpp"
+    "img2obj/DAO/Slice.hpp"
+    "img2obj/DAO/IWorkspace.hpp"
+    "img2obj/DataStructures/thread_pool.hpp"
+    "img2obj/DataStructures/thread_safe_queue.hpp"
+    "img2obj/Filters/CannyEdge/CannyEdgeFilter.hpp"
+    "img2obj/Filters/IFilter.hpp"
+    "img2obj/Filters/PixelExtractor/PixelExtractorFilter.hpp"
+    "img2obj/Filters/PointExtractor/PointExtractorFilter.hpp"
+    "img2obj/Misc/Settings.hpp"
+    "img2obj/Misc/Types.hpp"
+    "img2obj/Misc/Warnings.hpp"
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
@@ -28,14 +46,20 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     debug       "${PROJECT_SOURCE_DIR}/lib/Debug/dcmtk.lib"
+    debug       "${PROJECT_SOURCE_DIR}/lib/Debug/glfw3dll.lib"
+    debug       "${PROJECT_SOURCE_DIR}/lib/Debug/libglew32d.lib"
+    debug       "${PROJECT_SOURCE_DIR}/lib/Debug/opencv_world4120d.lib"
     
     optimized   "${PROJECT_SOURCE_DIR}/lib/Release/dcmtk.lib"
+    optimized   "${PROJECT_SOURCE_DIR}/lib/Release/glfw3dll.lib"
+    optimized   "${PROJECT_SOURCE_DIR}/lib/Release/libglew32.lib"
+    optimized   "${PROJECT_SOURCE_DIR}/lib/Release/opencv_world4120.lib"
 )
 
 # Add project cmake header
 configure_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Identification.h.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/Identification.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/img2obj/Misc/Version.h.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/Version.h"
     @ONLY
 )
 
@@ -59,8 +83,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 )
 
 # Copy DLLs after build
-set(DLLS dcmtk.dll )
-foreach(dll ${DLLS})
+set(DLLS_DEBUG dcmtk.dll glew32d.dll glfw3.dll opencv_videoio_ffmpeg4120_64.dll opencv_world4120d.dll)
+set(DLLS_RELEASE dcmtk.dll glew32.dll glfw3.dll opencv_videoio_ffmpeg4120_64.dll opencv_world4120.dll)
+
+foreach(dll "$<IF:$<CONFIG:Debug>,${DLLS_DEBUG},${DLLS_RELEASE}>")
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<IF:$<CONFIG:Debug>,${PROJECT_SOURCE_DIR}/dll/Debug/${dll},${PROJECT_SOURCE_DIR}/dll/Release/${dll}>"
