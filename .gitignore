@@ -1,0 +1,17 @@
+# Discard include
+include/
+
+# Discard lib
+lib/
+
+# Discard build
+build/
+
+# Discard deploy
+deploy/
+
+# Discard configuration
+.vscode/
+
+# Discard sensitive data
+data/
