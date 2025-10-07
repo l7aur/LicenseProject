@@ -7,6 +7,9 @@ lib/
 # Discard build
 build/
 
+# Discard dlls
+dlls/
+
 # Discard deploy
 deploy/
 
