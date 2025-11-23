@@ -1,49 +1,56 @@
 #pragma once
 
 #include "thread_safe_queue.hpp"
-#include "Warnings.hpp"
+#include "GlobalExceptionHandler.hpp"
+
+#include <mutex>
 #include <atomic>
+#include <vector>
+#include <barrier>
+#include <thread>
+#include <stdexcept>
 #include <functional>
+#include <condition_variable>
 
 class thread_pool {
 public:
-	thread_pool() noexcept(true)
-		: isDone{ false } 
+	thread_pool()
+		: isDone{ false },
+		worker_mtx{},
+		worker_cv{},
+		stop_barrier{ THREAD_COUNT + 1 }
 	{
 	}
 
 	~thread_pool() {
 		isDone = true;
-
-		for (size_t i = 0; i < threads.size(); ++i)
-			if (threads.at(i).joinable())
-				threads.at(i).join();
+		joinCaller();
 	}
 
 	void start() {
 		try {
-			const size_t threadCount = std::thread::hardware_concurrency();
-			for (size_t i = 0; i < threadCount; ++i)
+			for (size_t i = 0; i < THREAD_COUNT; ++i)
 				threads.push_back(std::thread(&thread_pool::worker_thread, this));
 		}
-		catch (const std::exception& e) {
+		catch (...) {
 			isDone = true;
-			throw e;
+			GlobalExceptionHandler::handle();
 		}
 	}
 
 	template<typename FunctionType>
-	void submit(FunctionType f) { // type erasure
+	void submit(FunctionType f) {
+		if (isDone)
+			throw std::runtime_error("The thread pool has been signaled to stop!");
 		work_q.push(std::function<void()>(f));
+		worker_cv.notify_one();
 	}
 
 	virtual void waitForFinish() {
-		while (!work_q.empty());
 		isDone = true;
-
-		for (size_t i = 0; i < threads.size(); ++i)
-			if (threads.at(i).joinable())
-				threads.at(i).join();
+		worker_cv.notify_all();
+		stop_barrier.arrive_and_wait();
+		joinCaller();
 	}
 
 protected:
@@ -51,17 +58,29 @@ protected:
 	thread_safe_queue<std::function<void()>> work_q;
 
 	void worker_thread() {
-		while (!isDone) {
+		while (!isDone || !work_q.empty()) {
 			std::function<void()> task;
 			if (work_q.try_pop(task)) {
 				task();
 			}
 			else {
-				std::this_thread::yield();
+				std::unique_lock lk(worker_mtx);
+				worker_cv.wait(lk);
 			}
 		}
+		stop_barrier.arrive_and_wait();
 	}
 
 private:
+	static const size_t THREAD_COUNT{ 10 };
 	std::vector<std::thread> threads;
+	std::condition_variable worker_cv;
+	std::barrier<> stop_barrier;
+	std::mutex worker_mtx;
+
+	void joinCaller() {
+		for (size_t i = 0; i < threads.size(); ++i)
+			if (threads.at(i).joinable())
+				threads.at(i).join();
+	}
 };

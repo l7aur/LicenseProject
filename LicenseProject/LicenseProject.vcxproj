@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -134,29 +134,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ExecutionPipeline.hpp" />
+    <ClInclude Include="GlobalExceptionHandler.hpp" />
     <ClInclude Include="IFilter.hpp" />
     <ClInclude Include="CannyEdgeDetectorFilter.hpp" />
     <ClInclude Include="IWorkspace.hpp" />
     <ClInclude Include="PointExtractorFilter.hpp" />
     <ClInclude Include="PointSet.hpp" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="PixelExtractorFilter.hpp" />
     <ClInclude Include="Settings.hpp" />
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
     <ClInclude Include="thread_safe_queue.hpp" />
     <ClInclude Include="Types.hpp" />
-    <ClInclude Include="Warnings.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="LicenseProject.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="CannyEdgeDetectorFilter.cpp" />
+    <ClCompile Include="GlobalExceptionHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractorFilter.cpp" />
     <ClCompile Include="PointExtractorFilter.cpp" />
