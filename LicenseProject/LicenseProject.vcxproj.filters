@@ -5,14 +5,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\Icon">
-      <UniqueIdentifier>{c96161e0-1b04-4b15-a30f-c9f47bc14b39}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Data Structures">
       <UniqueIdentifier>{fdbf0c55-bf07-4b57-bff5-113688ff56c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Messages">
-      <UniqueIdentifier>{c5cdc5ff-241f-471d-988c-8caaeefb8ec2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Filters">
       <UniqueIdentifier>{be7fe63c-18b1-4aeb-838c-94650450aef7}</UniqueIdentifier>
@@ -48,24 +42,16 @@
     <Filter Include="Workspace\PointSet">
       <UniqueIdentifier>{3308b0ca-31c6-4391-b2e0-a5c406542120}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{8ff41efc-760d-4119-8c84-0c43b2351e35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="LicenseProject.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource1.h">
-      <Filter>Resource Files\Icon</Filter>
-    </ClInclude>
     <ClInclude Include="thread_pool.hpp">
       <Filter>Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="thread_safe_queue.hpp">
       <Filter>Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Warnings.hpp">
-      <Filter>Messages</Filter>
     </ClInclude>
     <ClInclude Include="ExecutionPipeline.hpp">
       <Filter>Pipeline</Filter>
@@ -97,11 +83,9 @@
     <ClInclude Include="IWorkspace.hpp">
       <Filter>Workspace</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="icon.ico">
-      <Filter>Resource Files\Icon</Filter>
-    </Image>
+    <ClInclude Include="GlobalExceptionHandler.hpp">
+      <Filter>Exception</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -124,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="PointSet.cpp">
       <Filter>Workspace\PointSet</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalExceptionHandler.cpp">
+      <Filter>Exception</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

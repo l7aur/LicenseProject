@@ -7,7 +7,7 @@
 int main() {
 
 	// Create execution pipeline
-	ExecutionPipeline pipeline{Settings::EXECUTION_PIPELINE_SERIES_PATH};
+	ExecutionPipeline pipeline{ Settings::EXECUTION_PIPELINE_SERIES_PATH };
 
 	// Add filters
 	pipeline.addFilter(std::make_unique<PixelExtractorFilter>(Settings::PIXEL_EXTRACTOR_CACHE));
@@ -18,7 +18,7 @@ int main() {
 		Settings::CANNY_ACCURATE_GRADIENT,
 		Settings::CANNY_CACHE
 	));
-	pipeline.addFilter(std::make_unique<PointExtractorFilter>(Settings::POINT_EXTRACTOR_CACHE));
+	//pipeline.addFilter(std::make_unique<PointExtractorFilter>(Settings::POINT_EXTRACTOR_CACHE));
 
 	// Execute pipeline
 	Settings::USE_CACHING
