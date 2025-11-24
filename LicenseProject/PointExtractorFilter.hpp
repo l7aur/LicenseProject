@@ -1,14 +1,18 @@
 #pragma once
 
 #include "IFilter.hpp"
-#include "thread_pool.hpp"
+#include "Slice.hpp"
+#include "PointSet.hpp"
 
-class PointExtractorFilter : public IFilter
+#include <filesystem>
+
+class PointExtractorFilter : public IFilter<Slice, PointSet>
 {
 public:
-	PointExtractorFilter(const std::string_view& cachePath_);
+	PointExtractorFilter(const std::filesystem::path& _cachePath) { cachePath = _cachePath; }
 	~PointExtractorFilter() = default;
 
-	void execute(const std::vector<std::filesystem::path>&, std::vector<workspace>&) override;
+	void loadCache() override;
+	void cache() override;
 };
 

@@ -1,20 +1,23 @@
 #pragma once
 
-#include "Types.hpp"
-#include "thread_pool.hpp"
+#include "IFilterBase.hpp"
+#include "DataInternalRepresentation.hpp"
 
-#include <vector>
-#include <string_view>
+#include <filesystem>
+#include <type_traits>
 
-namespace std::filesystem { class path; };
-
-class IFilter : public thread_pool {
+template<typename Input, typename Output>
+class IFilter : public IFilterBase {
+	static_assert(std::is_base_of<DataInternalRepresentation, Input>::value, "Input must derive from DataInternalRepresentation");
+	static_assert(std::is_base_of<DataInternalRepresentation, Output>::value, "Output must derive from DataInternalRepresentation");
 public:
+	IFilter() = default;
 	virtual ~IFilter() = default; 
-	const std::string_view& getCachePath() const { return cachePath; }
+	const std::filesystem::path& getCachePath() const { return cachePath; }
 
-	virtual void execute(const std::vector<std::filesystem::path>&, std::vector<workspace>&) = 0;
+	virtual void loadCache() override = 0;
+	virtual void cache() override = 0;
 
 protected:
-	std::string_view cachePath{ "" };
+	std::filesystem::path cachePath{ "" };
 };

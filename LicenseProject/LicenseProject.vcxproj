@@ -133,11 +133,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DataInternalRepresentation.hpp" />
     <ClInclude Include="ExecutionPipeline.hpp" />
     <ClInclude Include="GlobalExceptionHandler.hpp" />
     <ClInclude Include="IFilter.hpp" />
     <ClInclude Include="CannyEdgeDetectorFilter.hpp" />
-    <ClInclude Include="IWorkspace.hpp" />
+    <ClInclude Include="IFilterBase.hpp" />
+    <ClInclude Include="Image.hpp" />
+    <ClInclude Include="Path.hpp" />
+    <ClInclude Include="Pixel.hpp" />
+    <ClInclude Include="Point2.hpp" />
+    <ClInclude Include="Workspace.hpp" />
+    <ClInclude Include="Point3.hpp" />
     <ClInclude Include="PointExtractorFilter.hpp" />
     <ClInclude Include="PointSet.hpp" />
     <ClInclude Include="PixelExtractorFilter.hpp" />
@@ -145,7 +152,7 @@
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
     <ClInclude Include="thread_safe_queue.hpp" />
-    <ClInclude Include="Types.hpp" />
+    <ClInclude Include="Vector3.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ExecutionPipeline.cpp" />
@@ -153,13 +160,16 @@
     <ClCompile Include="GlobalExceptionHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PixelExtractorFilter.cpp" />
+    <ClCompile Include="Point2.cpp" />
+    <ClCompile Include="Point3.cpp" />
     <ClCompile Include="PointExtractorFilter.cpp" />
     <ClCompile Include="PointSet.cpp" />
     <ClCompile Include="Slice.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Workspace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore" />
-    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

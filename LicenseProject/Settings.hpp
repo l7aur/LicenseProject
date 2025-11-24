@@ -6,6 +6,7 @@ namespace Settings {
 	// Pipeline
 	constexpr bool USE_CACHING{ false };
 	constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/test/" };
+	//constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/CT2/" };
 
 	// PixelExtractorFilter
 	constexpr std::string_view PIXEL_EXTRACTOR_CACHE{ "./cache/pixel_extractor_filter/" };

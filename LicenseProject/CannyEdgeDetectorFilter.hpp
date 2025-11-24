@@ -1,21 +1,25 @@
 #pragma once
 
 #include "IFilter.hpp"
-#include "thread_pool.hpp"
+#include "Slice.hpp"
+#include "Image.hpp"
 
-class CannyEdgeDetectorFilter : public IFilter
+#include <filesystem>
+
+class CannyEdgeDetectorFilter : public IFilter<Slice, Image>
 {
 public:
 	CannyEdgeDetectorFilter(
-		const int minIntensity,
-		const int maxIntensity,
-		const int apertureSize_,
-		const bool accurateGrad,
-		const std::string_view& cachePath_
+		const int _minIntensity,
+		const int _maxIntensity,
+		const int _apertureSize,
+		const bool _accurateGrad,
+		const std::filesystem::path& _cachePath
 	);
 	~CannyEdgeDetectorFilter() = default;
 
-	void execute(const std::vector<std::filesystem::path>&, std::vector<workspace>&) override;
+	void loadCache() override;
+	void cache() override;
 	
 private:
 	const int minimumIntensity, maximumIntensity;

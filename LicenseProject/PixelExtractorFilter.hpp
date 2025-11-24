@@ -1,13 +1,18 @@
 #pragma once
 
 #include "IFilter.hpp"
-#include "thread_pool.hpp"
+#include "Slice.hpp"
+#include "Path.hpp"
 
-class PixelExtractorFilter : public IFilter
+#include <filesystem>
+
+class PixelExtractorFilter : public IFilter<Path, Slice>
 {
 public:
-	PixelExtractorFilter(const std::string_view& cachePath_);
+	PixelExtractorFilter(const std::filesystem::path& _cachePath) { cachePath = _cachePath; }
+	~PixelExtractorFilter() = default;
 
-	void execute(const std::vector<std::filesystem::path>& paths, std::vector<workspace>& wspaces) override;
+	void loadCache() override;
+	void cache() override;
 };
 

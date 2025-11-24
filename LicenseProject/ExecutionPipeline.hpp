@@ -1,34 +1,31 @@
 #pragma once
 
-#include "Slice.hpp"
-#include "PointSet.hpp"
+#include "Workspace.hpp"
 
 #include <list>
-#include <vector>
-#include <string>
-#include <filesystem>
-
-class IFilter;
+#include <memory>
+#include "IFilter.hpp"
+#include "IFilterBase.hpp"
 
 class ExecutionPipeline
 {
 public:
-	ExecutionPipeline(const std::filesystem::path seriesPath_);
+	ExecutionPipeline();
 	~ExecutionPipeline() = default;
 	ExecutionPipeline(ExecutionPipeline&) = delete;
 	void operator=(const ExecutionPipeline&) = delete;
 
-	void addFilter(std::unique_ptr<IFilter> newFilter);
+	template<typename In, typename Out>
+	void addFilter(std::unique_ptr<IFilter<In, Out>> newFilter) {
+		if (newFilter)
+			filters.push_back(std::make_unique<IFilterBase>(std::move(newFilter)));
+	}
+
 	void executeWithCaching();
 	void execute();
-	void display() const;
 
 private:
-	std::vector<workspace> wspaces;
-	std::vector<std::filesystem::path> paths;
-	std::list<std::unique_ptr<IFilter>> filters{};
-	const std::filesystem::path seriesPath;
-
-	void cache(const std::string_view& cachePath) const;
+	Workspace workspace;
+	std::list<std::unique_ptr<IFilterBase>> filters{};
 };
 
