@@ -1,4 +1,8 @@
 #include "PointExtractorFilter.hpp"
+#include "DataInternalRepresentation.hpp"
+#include "Slice.hpp"
+
+#include <memory>
 
 void PointExtractorFilter::loadCache()
 {
@@ -6,6 +10,11 @@ void PointExtractorFilter::loadCache()
 
 void PointExtractorFilter::cache()
 {
+}
+
+std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(const Slice* input) noexcept(false)
+{
+    return std::unique_ptr<DataInternalRepresentation>();
 }
 
 //void PointExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)

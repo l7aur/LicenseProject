@@ -13,6 +13,11 @@ void ExecutionPipeline::execute() noexcept(false)
 		executeWithoutCaching();
 }
 
+/**
+ * .
+ * 
+ * \return 
+ */
 void ExecutionPipeline::executeWithCaching() noexcept(false)
 {
 	for (const auto& currentFilter : filters) {
@@ -23,6 +28,11 @@ void ExecutionPipeline::executeWithCaching() noexcept(false)
 	}
 }
 
+/**
+ * .
+ * 
+ * \return 
+ */
 void ExecutionPipeline::executeWithoutCaching() noexcept(false)
 {
 	for (const auto& currentFilter : filters) {

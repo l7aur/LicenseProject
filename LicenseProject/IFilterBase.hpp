@@ -1,17 +1,52 @@
 #pragma once
 
-#include <typeinfo>
+#include "DataInternalRepresentation.hpp"
 
+#include <typeinfo>
+#include <memory>
+
+/**
+ * .
+ */
 class IFilterBase {
 public:
+	/**
+	 * .
+	 * 
+	 */
 	virtual ~IFilterBase() = default;
 
+	/**
+	 * .
+	 * 
+	 */
 	virtual void loadCache() = 0;
+	
+	/**
+	 * .
+	 * 
+	 */
 	virtual void cache() = 0;
 
+	/**
+	 * .
+	 * 
+	 * \return 
+	 */
 	virtual const std::type_info& inputType() = 0;
+	
+	/**
+	 * .
+	 * 
+	 * \return 
+	 */
 	virtual const std::type_info& outputType() = 0;
-
-protected:
-	IFilterBase() = default;
+	
+	/**
+	 * .
+	 * 
+	 * \param 
+	 * \return 
+	 */
+	virtual std::unique_ptr<DataInternalRepresentation> apply(const DataInternalRepresentation*) noexcept(false) = 0;
 };

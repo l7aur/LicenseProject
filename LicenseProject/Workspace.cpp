@@ -10,14 +10,15 @@ Workspace::Workspace(const size_t numberOfElemets)
 {
 }
 
-void Workspace::setValueAtInternalRepresentation(const size_t index, std::unique_ptr<DataInternalRepresentation> representation)
-{
-	internalRepresentation.at(index) = std::move(representation);
-}
-
 void Workspace::executeFilter()
 {
-	this->start();
+	for (size_t i = 0; i < internalRepresentation.size(); i++) {
+		this->submit([repr = &internalRepresentation.at(i), filter = this->currentFilter] {
+			std::unique_ptr<DataInternalRepresentation> out = filter->apply(repr->get());
+			*repr = std::move(out);
+			});
+	}
 
+	this->start();
 	this->waitForFinish();
 }
