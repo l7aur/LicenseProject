@@ -1,11 +1,19 @@
 #include "ExecutionPipeline.hpp"
 
-ExecutionPipeline::ExecutionPipeline()
+ExecutionPipeline::ExecutionPipeline() noexcept(true)
 	: workspace{ 0 }
 {
 }
 
-void ExecutionPipeline::executeWithCaching()
+void ExecutionPipeline::execute() noexcept(false)
+{
+	if (useCaching)
+		executeWithCaching();
+	else
+		executeWithoutCaching();
+}
+
+void ExecutionPipeline::executeWithCaching() noexcept(false)
 {
 	for (const auto& currentFilter : filters) {
 		workspace.setFilter(currentFilter.get());
@@ -15,7 +23,7 @@ void ExecutionPipeline::executeWithCaching()
 	}
 }
 
-void ExecutionPipeline::execute()
+void ExecutionPipeline::executeWithoutCaching() noexcept(false)
 {
 	for (const auto& currentFilter : filters) {
 		workspace.setFilter(currentFilter.get());

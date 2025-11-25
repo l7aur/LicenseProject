@@ -20,7 +20,7 @@ public:
 
 	void loadCache() override;
 	void cache() override;
-	
+
 private:
 	const int minimumIntensity, maximumIntensity;
 	const int apertureSize;
