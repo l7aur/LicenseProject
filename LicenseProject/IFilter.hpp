@@ -18,11 +18,14 @@ class IFilter : public IFilterBase {
 	static_assert(std::is_base_of<DataInternalRepresentation, Output>::value, "Output must derive from DataInternalRepresentation");
 
 public:
+	using input_type = Input;
+	using output_type = Output;
+
 	/**
 	 * .
 	 * 
 	 */
-	IFilter() = default;
+	IFilter(const std::filesystem::path& _cachePath) : IFilterBase{ _cachePath } {}
 
 	/**
 	 * .
@@ -32,21 +35,14 @@ public:
 	/**
 	 * .
 	 * 
-	 * \return 
 	 */
-	const std::filesystem::path& getCachePath() const { return cachePath; }
+	virtual void loadCache() noexcept(false) override = 0;
 
 	/**
 	 * .
 	 * 
 	 */
-	virtual void loadCache() override = 0;
-
-	/**
-	 * .
-	 * 
-	 */
-	virtual void cache() override = 0;
+	virtual void cache() noexcept(false) override = 0;
 	
 	/**
 	 * .
@@ -76,10 +72,7 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	virtual std::unique_ptr<DataInternalRepresentation> process(const Input* input) noexcept(false) = 0;
-
-protected:
-	std::filesystem::path cachePath{ "" };
+	virtual std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) = 0;
 };
 
 template<typename Input, typename Output>

@@ -1,6 +1,6 @@
 #include "PointExtractorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
-#include "Slice.hpp"
+#include "IFilter.hpp"
 
 #include <memory>
 
@@ -12,7 +12,7 @@ void PointExtractorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(const Slice* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(const PointExtractorFilter::input_type* input) noexcept(false)
 {
     return std::unique_ptr<DataInternalRepresentation>();
 }

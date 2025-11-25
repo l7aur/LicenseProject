@@ -1,6 +1,6 @@
 #include "CannyEdgeDetectorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
-#include "Slice.hpp"
+#include "IFilter.hpp"
 
 #include <filesystem>
 #include <memory>
@@ -9,10 +9,10 @@ CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
     const int _minIntensity, const int _maxIntensity,
     const int _apertureSize, const bool _accurateGrad,
     const std::filesystem::path& _cachePath)
-    : minimumIntensity{ _minIntensity }, maximumIntensity{ _maxIntensity },
+    : IFilter{ _cachePath },
+    minimumIntensity{ _minIntensity }, maximumIntensity{ _maxIntensity },
     apertureSize{ _apertureSize }, useMoreAccurateGradient{ _accurateGrad }
 {
-    cachePath = _cachePath;
 }
 
 void CannyEdgeDetectorFilter::loadCache()
@@ -23,7 +23,7 @@ void CannyEdgeDetectorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(const Slice* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(const CannyEdgeDetectorFilter::input_type* input) noexcept(false)
 {
     return std::unique_ptr<DataInternalRepresentation>();
 }

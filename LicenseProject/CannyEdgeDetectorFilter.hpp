@@ -49,7 +49,7 @@ public:
 	 */
 	void cache() override;
 
-	std::unique_ptr<DataInternalRepresentation> process(const Slice* input) noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
 
 private:
 	/**

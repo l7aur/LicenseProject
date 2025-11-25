@@ -19,7 +19,7 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	PixelExtractorFilter(const std::filesystem::path& _cachePath) { cachePath = _cachePath; }
+	PixelExtractorFilter(const std::filesystem::path& _cachePath) : IFilter{ _cachePath } {}
 
 	/**
 	 * .
@@ -45,6 +45,6 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> process(const Path* input) noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
 };
 

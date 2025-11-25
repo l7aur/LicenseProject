@@ -13,14 +13,14 @@ int main() {
 	try {
 		pipeline.addFilter(std::make_unique<PixelExtractorFilter>(
 			Settings::PIXEL_EXTRACTOR_CACHE));
-		/*pipeline.addFilter(std::make_unique<CannyEdgeDetectorFilter>(
+		pipeline.addFilter(std::make_unique<CannyEdgeDetectorFilter>(
 			Settings::CANNY_MINIMUM_INTENSITY,
 			Settings::CANNY_MAXIMUM_INTENSITY,
 			Settings::CANNY_APERTURE_SIZE,
 			Settings::CANNY_ACCURATE_GRADIENT,
 			Settings::CANNY_CACHE));
 		pipeline.addFilter(std::make_unique<PointExtractorFilter>(
-			Settings::POINT_EXTRACTOR_CACHE));*/
+			Settings::POINT_EXTRACTOR_CACHE));
 
 		pipeline.execute();
 	}

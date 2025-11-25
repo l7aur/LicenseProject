@@ -1,6 +1,6 @@
 #include "PixelExtractorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
-#include "Path.hpp"
+#include "IFilter.hpp"
 
 #include <memory>
 
@@ -12,7 +12,7 @@ void PixelExtractorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> PixelExtractorFilter::process(const Path* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> PixelExtractorFilter::process(const PixelExtractorFilter::input_type* input) noexcept(false)
 {
     return std::unique_ptr<DataInternalRepresentation>();
 }

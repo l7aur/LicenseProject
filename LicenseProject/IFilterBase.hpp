@@ -3,6 +3,7 @@
 #include "DataInternalRepresentation.hpp"
 
 #include <typeinfo>
+#include <filesystem>
 #include <memory>
 
 /**
@@ -13,6 +14,13 @@ public:
 	/**
 	 * .
 	 * 
+	 * \param _cachePath
+	 */
+	IFilterBase(const std::filesystem::path& _cachePath) : cachePath{ _cachePath } {}
+
+	/**
+	 * .
+	 * 
 	 */
 	virtual ~IFilterBase() = default;
 
@@ -20,13 +28,13 @@ public:
 	 * .
 	 * 
 	 */
-	virtual void loadCache() = 0;
+	virtual void loadCache() noexcept(false) = 0;
 	
 	/**
 	 * .
 	 * 
 	 */
-	virtual void cache() = 0;
+	virtual void cache() noexcept(false) = 0;
 
 	/**
 	 * .
@@ -49,4 +57,17 @@ public:
 	 * \return 
 	 */
 	virtual std::unique_ptr<DataInternalRepresentation> apply(const DataInternalRepresentation*) noexcept(false) = 0;
+
+	/**
+	 * .
+	 *
+	 * \return
+	 */
+	const std::filesystem::path& getCachePath() const { return cachePath; }
+
+private:
+	/**
+	 * .
+	 */
+	std::filesystem::path cachePath{ "" };
 };
