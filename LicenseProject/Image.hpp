@@ -14,6 +14,12 @@ public:
 	/**
 	 * .
 	 * 
+	 */
+	Image() = default;
+
+	/**
+	 * .
+	 * 
 	 * \param width
 	 * \param height
 	 * \param pixels
@@ -26,8 +32,18 @@ public:
 	 */
 	~Image() = default;
 
+	/**
+	 * .
+	 */
 	const cv::Mat& getImage() const { return img; };
 
+	/**
+	 * .
+	 * 
+	 * \return 
+	 */
+	cv::Mat& imageHandle() { return img; }
+
 private:
-	cv::Mat img;
+	cv::Mat img{};
 };

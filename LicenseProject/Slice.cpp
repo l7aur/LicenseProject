@@ -68,8 +68,6 @@ Slice::Slice(const std::filesystem::path& p)
 	width = img.getWidth();
 	height = img.getHeight();
 
-	static_assert(sizeof(Pixel) == 1);
-
 	const auto* src = static_cast<const Pixel*>(img.getOutputData(sizeof(Pixel) * 8 /* bits */));
 
 	if (!src)
