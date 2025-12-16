@@ -2,7 +2,7 @@
 
 #include "DataInternalRepresentation.hpp"
 #include "thread_pool.hpp"
-#include "IFilterBase.hpp"
+#include "FilterBase.hpp"
 
 #include <vector>
 #include <memory>
@@ -37,7 +37,7 @@ public:
 	 * 
 	 * \param filter
 	 */
-	void setFilter(IFilterBase* filter) { currentFilter = filter; }
+	void setFilter(FilterBase* filter) { currentFilter = filter; }
 
 	/**
 	 * .
@@ -66,5 +66,5 @@ private:
 	/**
 	 * .
 	 */
-	IFilterBase* currentFilter;
+	FilterBase* currentFilter;
 };

@@ -21,4 +21,13 @@ namespace Settings {
 
 	// PointExtractorFilter
 	constexpr std::string_view POINT_EXTRACTOR_CACHE{ "./cache/point_extractor_filter/" };
+
+	// MeshCreatorFilter
+	constexpr std::string_view MESH_CREATOR_CACHE{ "./cache/mesh_creator_filter/" };
+
+	// MeshSerializerFilter
+	constexpr std::string_view MESH_SERIALIZER_CACHE{ "./cache/mesh_serializer_filter/" };
+
+	// ImageViewerFilter
+	constexpr std::string_view IMAGE_VIEWER_CACHE{ "./cache/image_viewer_filter/" };
 }

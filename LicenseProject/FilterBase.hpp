@@ -9,20 +9,20 @@
 /**
  * .
  */
-class IFilterBase {
+class FilterBase {
 public:
 	/**
 	 * .
 	 * 
 	 * \param _cachePath
 	 */
-	IFilterBase(const std::filesystem::path& _cachePath) : cachePath{ _cachePath } {}
+	FilterBase(const std::filesystem::path& _cachePath) : cachePath{ _cachePath } {}
 
 	/**
 	 * .
 	 * 
 	 */
-	virtual ~IFilterBase() = default;
+	virtual ~FilterBase() = default;
 
 	/**
 	 * .

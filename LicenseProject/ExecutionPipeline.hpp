@@ -1,12 +1,14 @@
 #pragma once
 
 #include "Workspace.hpp"
-#include "IFilterBase.hpp"
+#include "FilterBase.hpp"
 
 #include <list>
 #include <memory>
 #include <stdexcept>
 #include <type_traits>
+#include <algorithm>
+#include <utility>
 
 /**
  * .
@@ -85,7 +87,7 @@ private:
 	/**
 	 * .
 	 */
-	std::list<std::unique_ptr<IFilterBase>> filters;
+	std::list<std::unique_ptr<FilterBase>> filters;
 
 	/**
 	 * .
@@ -99,13 +101,13 @@ private:
 template<typename Filter>
 inline void ExecutionPipeline::addFilter(std::unique_ptr<Filter> newFilter) noexcept(false)
 {
-	static_assert(std::is_base_of_v<IFilterBase, Filter>, "Filter must inherit from IFilterBase");
+	static_assert(std::is_base_of_v<FilterBase, Filter>, "Filter must inherit from FilterBase");
 
 	if (!newFilter)
 		return;
 
 	if (!filters.empty()) {
-		IFilterBase* lastFilter = filters.back().get();
+		FilterBase* lastFilter = filters.back().get();
 		if (lastFilter->outputType() != typeid(newFilter.get()->inputType()))
 			throw std::runtime_error("Input of new filter does not match output of previous filter");
 	}

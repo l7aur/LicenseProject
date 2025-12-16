@@ -1,7 +1,7 @@
 #pragma once
 
+#include "Mesh.hpp"
 #include "Filter.hpp"
-#include "Slice.hpp"
 #include "PointSet.hpp"
 #include "DataInternalRepresentation.hpp"
 
@@ -11,7 +11,7 @@
 /**
  * .
  */
-class PointExtractorFilter : public Filter<Slice, PointSet>
+class MeshCreatorFilter : public Filter<PointSet, Mesh> 
 {
 public:
 	/**
@@ -19,20 +19,20 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	PointExtractorFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	MeshCreatorFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
 	
 	/**
 	 * .
 	 * 
 	 */
-	~PointExtractorFilter() = default;
+	~MeshCreatorFilter() = default;
 
 	/**
 	 * .
 	 * 
 	 */
 	void loadCache() override;
-	
+
 	/**
 	 * .
 	 * 
@@ -45,6 +45,5 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> process(const input_type* input)  noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
 };
-

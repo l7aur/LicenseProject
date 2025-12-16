@@ -1,6 +1,6 @@
 #include "PointExtractorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
-#include "IFilter.hpp"
+#include "Filter.hpp"
 
 #include <memory>
 

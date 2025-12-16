@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IFilterBase.hpp"
+#include "FilterBase.hpp"
 #include "DataInternalRepresentation.hpp"
 
 #include <filesystem>
@@ -13,7 +13,7 @@
  * .
  */
 template<typename Input, typename Output>
-class IFilter : public IFilterBase {
+class Filter : public FilterBase {
 	static_assert(std::is_base_of<DataInternalRepresentation, Input>::value, "Input must derive from DataInternalRepresentation");
 	static_assert(std::is_base_of<DataInternalRepresentation, Output>::value, "Output must derive from DataInternalRepresentation");
 
@@ -25,12 +25,12 @@ public:
 	 * .
 	 * 
 	 */
-	IFilter(const std::filesystem::path& _cachePath) : IFilterBase{ _cachePath } {}
+	Filter(const std::filesystem::path& _cachePath) : FilterBase{ _cachePath } {}
 
 	/**
 	 * .
 	 */
-	virtual ~IFilter() = default; 
+	virtual ~Filter() = default; 
 
 	/**
 	 * .
@@ -76,7 +76,7 @@ public:
 };
 
 template<typename Input, typename Output>
-inline std::unique_ptr<DataInternalRepresentation> IFilter<Input, Output>::apply(const DataInternalRepresentation* input)  noexcept(false)
+inline std::unique_ptr<DataInternalRepresentation> Filter<Input, Output>::apply(const DataInternalRepresentation* input)  noexcept(false)
 {
 	auto typed = dynamic_cast<const Input*>(input);
 	if (typed == nullptr)

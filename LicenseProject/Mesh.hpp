@@ -5,7 +5,7 @@
 /**
  * .
  */
-class Image : public DataInternalRepresentation 
+class Mesh : public DataInternalRepresentation
 {
 public:
 private:

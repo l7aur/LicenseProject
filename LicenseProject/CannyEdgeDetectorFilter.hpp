@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IFilter.hpp"
+#include "Filter.hpp"
 #include "Slice.hpp"
 #include "Image.hpp"
 #include "DataInternalRepresentation.hpp"
@@ -11,7 +11,7 @@
 /**
  * .
  */
-class CannyEdgeDetectorFilter : public IFilter<Slice, Image>
+class CannyEdgeDetectorFilter : public Filter<Slice, Image>
 {
 public:
 	/**

@@ -3,6 +3,8 @@
 #include "CannyEdgeDetectorFilter.hpp"
 #include "PointExtractorFilter.hpp"
 #include "GlobalExceptionHandler.hpp"
+#include "MeshCreatorFilter.hpp"
+#include "MeshSerializerFilter.hpp"
 #include "Settings.hpp"
 
 #include <memory>
@@ -21,6 +23,10 @@ int main() {
 			Settings::CANNY_CACHE));
 		pipeline.addFilter(std::make_unique<PointExtractorFilter>(
 			Settings::POINT_EXTRACTOR_CACHE));
+		pipeline.addFilter(std::make_unique<MeshCreatorFilter>(
+			Settings::MESH_CREATOR_CACHE));
+		pipeline.addFilter(std::make_unique<MeshSerializerFilter>(
+			Settings::MESH_SERIALIZER_CACHE));
 
 		pipeline.execute();
 	}

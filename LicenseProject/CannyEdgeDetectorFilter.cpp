@@ -1,6 +1,6 @@
 #include "CannyEdgeDetectorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
-#include "IFilter.hpp"
+#include "Filter.hpp"
 
 #include <filesystem>
 #include <memory>
@@ -9,7 +9,7 @@ CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
     const int _minIntensity, const int _maxIntensity,
     const int _apertureSize, const bool _accurateGrad,
     const std::filesystem::path& _cachePath)
-    : IFilter{ _cachePath },
+    : Filter{ _cachePath },
     minimumIntensity{ _minIntensity }, maximumIntensity{ _maxIntensity },
     apertureSize{ _apertureSize }, useMoreAccurateGradient{ _accurateGrad }
 {
