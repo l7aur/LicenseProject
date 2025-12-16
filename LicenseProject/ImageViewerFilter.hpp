@@ -6,6 +6,7 @@
 
 #include <filesystem>
 #include <memory>
+#include <mutex>
 
 /**
  * .
@@ -18,7 +19,7 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	ImageViewerFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	ImageViewerFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath }, mtx{} {}
 	
 	/**
 	 * .
@@ -45,4 +46,7 @@ public:
 	 * \return
 	 */
 	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
+
+private:
+	std::mutex mtx;
 };

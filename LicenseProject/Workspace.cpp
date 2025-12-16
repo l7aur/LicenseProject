@@ -13,8 +13,6 @@ Workspace::Workspace(const std::filesystem::path& directoryPath)
 	for (const auto& entry : std::filesystem::directory_iterator(directoryPath)) {
 		if (entry.is_regular_file() && entry.path().extension() == ".dcm") {
 			internalRepresentation.emplace_back(std::make_unique<Path>(entry.path()));
-			// limit to 1
-			break;
 		}
 	}
 }
