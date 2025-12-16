@@ -1,32 +1,34 @@
-#include "Types.hpp"
-#include "Slice.hpp"
-#include "PointSet.hpp"
 #include "PixelExtractorFilter.hpp"
-#include "GlobalExceptionHandler.hpp"
+#include "DataInternalRepresentation.hpp"
+#include "Filter.hpp"
 
 #include <memory>
-#include <vector>
-#include <utility>
-#include <filesystem>
-#include <string_view>
 
-PixelExtractorFilter::PixelExtractorFilter(const std::string_view& cachePath_)
+void PixelExtractorFilter::loadCache()
 {
-	cachePath = cachePath_;
 }
 
-void PixelExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<workspace>& wspaces)
+void PixelExtractorFilter::cache()
 {
-	try {
-		for (size_t i = 0; i < wspaces.size(); ++i)
-			submit(
-				[&wspaces, i, &paths]() {
-					Slice s{ paths.at(i) };
-					wspaces[i] = std::make_unique<types>(std::move(s));
-				}
-			);
-	}
-	catch (...) {
-		GlobalExceptionHandler::handle();
-	}
 }
+
+std::unique_ptr<DataInternalRepresentation> PixelExtractorFilter::process(const PixelExtractorFilter::input_type* input) noexcept(false)
+{
+    return std::unique_ptr<DataInternalRepresentation>();
+}
+
+//void PixelExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)
+//{
+//	try {
+//		for (size_t i = 0; i < wspaces.size(); ++i)
+//			submit(
+//				[wspace = &wspaces, i, &paths]() {
+//					Slice s{ paths.at(i) };
+//					wspace = static_cast<Workspace>(std::move(s));
+//				}
+//			);
+//	}
+//	catch (...) {
+//		GlobalExceptionHandler::handle();
+//	}
+//}

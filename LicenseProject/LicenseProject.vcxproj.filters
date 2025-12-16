@@ -11,21 +11,12 @@
     <Filter Include="Filters">
       <UniqueIdentifier>{be7fe63c-18b1-4aeb-838c-94650450aef7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pipeline">
-      <UniqueIdentifier>{6e96e677-87ad-47b7-87e3-6ebec4c5c252}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Filters\Pixel Extractor">
       <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Workspace">
-      <UniqueIdentifier>{9f6cb1cb-297c-40d7-b68c-ae9155befaaf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Workspace\Slice">
-      <UniqueIdentifier>{cea91954-13af-4916-b013-6a663ab2dab6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Miscellaneous">
       <UniqueIdentifier>{c903169b-c472-47ad-874c-e43e858bf649}</UniqueIdentifier>
@@ -39,11 +30,56 @@
     <Filter Include="Settings">
       <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Workspace\PointSet">
-      <UniqueIdentifier>{3308b0ca-31c6-4391-b2e0-a5c406542120}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Exception">
       <UniqueIdentifier>{8ff41efc-760d-4119-8c84-0c43b2351e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{accd5f5b-b23f-4700-b64b-569b92191f27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Pixel">
+      <UniqueIdentifier>{001b6b4b-c3cf-487f-9549-21a0d5e87156}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Vector">
+      <UniqueIdentifier>{adfa07d3-6678-4a92-b31a-a4d230e695ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Point">
+      <UniqueIdentifier>{5170ac29-2590-4eff-9666-df45bac5712f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{6e96e677-87ad-47b7-87e3-6ebec4c5c252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Pipeline">
+      <UniqueIdentifier>{88d65602-97bb-4d6c-81dd-5b18f59c287e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace">
+      <UniqueIdentifier>{7e57abad-2c11-4c5b-89d9-ca47e3f22741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation">
+      <UniqueIdentifier>{9f6cb1cb-297c-40d7-b68c-ae9155befaaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\Slice">
+      <UniqueIdentifier>{cea91954-13af-4916-b013-6a663ab2dab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\PointSet">
+      <UniqueIdentifier>{3308b0ca-31c6-4391-b2e0-a5c406542120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\Image">
+      <UniqueIdentifier>{85b6a640-da55-49ec-860d-9c67477d1681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\Path">
+      <UniqueIdentifier>{9da56591-503b-47c3-882c-196d286883a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Mesh Creator">
+      <UniqueIdentifier>{e1dd56ff-e9e6-402a-b840-fb797d6541cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\Mesh">
+      <UniqueIdentifier>{95e58b60-1299-4de1-b525-1f6d0f42b916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Mesh Serializer">
+      <UniqueIdentifier>{67990bb6-e01c-427a-ae16-3288fae7eca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Image Viewer">
+      <UniqueIdentifier>{dece3595-d4df-4dc1-8045-ff4523851fcc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,10 +89,7 @@
     <ClInclude Include="thread_safe_queue.hpp">
       <Filter>Data Structures</Filter>
     </ClInclude>
-    <ClInclude Include="ExecutionPipeline.hpp">
-      <Filter>Pipeline</Filter>
-    </ClInclude>
-    <ClInclude Include="IFilter.hpp">
+    <ClInclude Include="Filter.hpp">
       <Filter>Filters</Filter>
     </ClInclude>
     <ClInclude Include="Settings.hpp">
@@ -66,7 +99,7 @@
       <Filter>Filters\Pixel Extractor</Filter>
     </ClInclude>
     <ClInclude Include="Slice.hpp">
-      <Filter>Workspace\Slice</Filter>
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Slice</Filter>
     </ClInclude>
     <ClInclude Include="CannyEdgeDetectorFilter.hpp">
       <Filter>Filters\Canny Edge Detector</Filter>
@@ -74,31 +107,64 @@
     <ClInclude Include="PointExtractorFilter.hpp">
       <Filter>Filters\Point Extractor</Filter>
     </ClInclude>
-    <ClInclude Include="Types.hpp">
-      <Filter>Settings</Filter>
-    </ClInclude>
     <ClInclude Include="PointSet.hpp">
-      <Filter>Workspace\PointSet</Filter>
-    </ClInclude>
-    <ClInclude Include="IWorkspace.hpp">
-      <Filter>Workspace</Filter>
+      <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>
     </ClInclude>
     <ClInclude Include="GlobalExceptionHandler.hpp">
       <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="DataInternalRepresentation.hpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterBase.hpp">
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixel.hpp">
+      <Filter>Utils\Pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.hpp">
+      <Filter>Utils\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Point2.hpp">
+      <Filter>Utils\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Point3.hpp">
+      <Filter>Utils\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="ExecutionPipeline.hpp">
+      <Filter>Core\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace.hpp">
+      <Filter>Core\Workspace</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.hpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.hpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCreatorFilter.hpp">
+      <Filter>Filters\Mesh Creator</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.hpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshSerializerFilter.hpp">
+      <Filter>Filters\Mesh Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageViewerFilter.hpp">
+      <Filter>Filters\Image Viewer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="ExecutionPipeline.cpp">
-      <Filter>Pipeline</Filter>
-    </ClCompile>
     <ClCompile Include="PixelExtractorFilter.cpp">
       <Filter>Filters\Pixel Extractor</Filter>
     </ClCompile>
     <ClCompile Include="Slice.cpp">
-      <Filter>Workspace\Slice</Filter>
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Slice</Filter>
     </ClCompile>
     <ClCompile Include="CannyEdgeDetectorFilter.cpp">
       <Filter>Filters\Canny Edge Detector</Filter>
@@ -107,17 +173,41 @@
       <Filter>Filters\Point Extractor</Filter>
     </ClCompile>
     <ClCompile Include="PointSet.cpp">
-      <Filter>Workspace\PointSet</Filter>
+      <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>
     </ClCompile>
     <ClCompile Include="GlobalExceptionHandler.cpp">
       <Filter>Exception</Filter>
     </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Utils\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Point2.cpp">
+      <Filter>Utils\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Point3.cpp">
+      <Filter>Utils\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="ExecutionPipeline.cpp">
+      <Filter>Core\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace.cpp">
+      <Filter>Core\Workspace</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCreatorFilter.cpp">
+      <Filter>Filters\Mesh Creator</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshSerializerFilter.cpp">
+      <Filter>Filters\Mesh Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageViewerFilter.cpp">
+      <Filter>Filters\Image Viewer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore">
-      <Filter>Miscellaneous</Filter>
-    </None>
-    <None Include="cpp.hint">
       <Filter>Miscellaneous</Filter>
     </None>
   </ItemGroup>

@@ -1,26 +1,73 @@
 #pragma once
 
-#include "Types.hpp"
-#include "IWorkspace.hpp"
+#include "Point2.hpp"
+#include "Point3.hpp"
+#include "DataInternalRepresentation.hpp"
 
 #include <string>
 #include <vector>
 
-class PointSet : public IWorkspace
+/**
+ * .
+ */
+class PointSet : public DataInternalRepresentation
 {
 public:
+	/**
+	 * .
+	 * 
+	 * \param uid_
+	 * \param tlhc_
+	 * \param pixSpacingX
+	 * \param pixSpacingY
+	 */
+	PointSet(const std::string& uid_, const Point3 tlhc_, const float pixSpacingX, const float pixSpacingY);
 
-	PointSet(const std::string& uid_, const space_point tlhc_, const float pixSpacingX, const float pixSpacingY);
+	/**
+	 * .
+	 * 
+	 */
 	~PointSet() = default;
 
-	[[nodiscard]] const space_point at(const size_t index) const;
-	void add(const image_point p);
-	void serialize(const std::filesystem::path& wherePath) const override;
+	/**
+	 * .
+	 * 
+	 * \param index
+	 * \return 
+	 */
+	[[nodiscard]] Point3 at(const size_t index) const;
+
+	/**
+	 * .
+	 * 
+	 * \param p
+	 */
+	void insert(const Point2 p);
 
 private:
+	/**
+	 * .
+	 */
 	const std::string uid;
-	const space_point tlhc;
-	const float pixelSpacingX, pixelSpacingY;
-	std::vector<image_point> points{};
+
+	/**
+	 * .
+	 */
+	const Point3 tlhc;
+
+	/**
+	 * .
+	 */
+	const float pixelSpacingX;
+
+	/**
+	 * .
+	 */
+	const float pixelSpacingY;
+
+	/**
+	 * .
+	 */
+	std::vector<Point2> points{};
 };
 

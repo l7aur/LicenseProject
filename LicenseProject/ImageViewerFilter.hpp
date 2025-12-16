@@ -1,8 +1,7 @@
 #pragma once
 
+#include "Image.hpp"
 #include "Filter.hpp"
-#include "Slice.hpp"
-#include "Path.hpp"
 #include "DataInternalRepresentation.hpp"
 
 #include <filesystem>
@@ -11,7 +10,7 @@
 /**
  * .
  */
-class PixelExtractorFilter : public Filter<Path, Slice>
+class ImageViewerFilter : public Filter<Image, Image>
 {
 public:
 	/**
@@ -19,32 +18,31 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	PixelExtractorFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
-
+	ImageViewerFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	
 	/**
 	 * .
 	 * 
 	 */
-	~PixelExtractorFilter() = default;
+	~ImageViewerFilter() = default;
 
 	/**
 	 * .
-	 * 
+	 *
 	 */
 	void loadCache() override;
 
 	/**
 	 * .
-	 * 
+	 *
 	 */
 	void cache() override;
 
 	/**
 	 * .
-	 * 
+	 *
 	 * \param input
-	 * \return 
+	 * \return
 	 */
 	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
 };
-
