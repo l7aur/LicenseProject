@@ -5,11 +5,16 @@
 #include "GlobalExceptionHandler.hpp"
 #include "MeshCreatorFilter.hpp"
 #include "MeshSerializerFilter.hpp"
+#include "ImageViewerFilter.hpp"
 #include "Settings.hpp"
+#include "Workspace.hpp"
 
 #include <memory>
 
-int main() {
+int main() 
+{
+	Workspace workspace{ "../dicom_data/test/" };
+	
 	ExecutionPipeline pipeline{};
 
 	try {
@@ -21,14 +26,16 @@ int main() {
 			Settings::CANNY_APERTURE_SIZE,
 			Settings::CANNY_ACCURATE_GRADIENT,
 			Settings::CANNY_CACHE));
-		pipeline.addFilter(std::make_unique<PointExtractorFilter>(
-			Settings::POINT_EXTRACTOR_CACHE));
-		pipeline.addFilter(std::make_unique<MeshCreatorFilter>(
-			Settings::MESH_CREATOR_CACHE));
-		pipeline.addFilter(std::make_unique<MeshSerializerFilter>(
-			Settings::MESH_SERIALIZER_CACHE));
+		pipeline.addFilter(std::make_unique<ImageViewerFilter>(
+			Settings::IMAGE_VIEWER_CACHE));
+		//pipeline.addFilter(std::make_unique<PointExtractorFilter>(
+			//Settings::POINT_EXTRACTOR_CACHE));
+		//pipeline.addFilter(std::make_unique<MeshCreatorFilter>(
+			//Settings::MESH_CREATOR_CACHE));
+		//pipeline.addFilter(std::make_unique<MeshSerializerFilter>(
+			//Settings::MESH_SERIALIZER_CACHE));
 
-		pipeline.execute();
+		pipeline.execute(workspace);
 	}
 	catch (...) {
 		GlobalExceptionHandler::handle();

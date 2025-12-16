@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\l7aur\source\repos\LicenseProject\library\DEBUG;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>dcmtk.lib;glfw3dll.lib;libglew32d.lib;opencv_world4120d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dcmtk.lib;opencv_world4120d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,6 +162,7 @@
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="CannyEdgeDetectorFilter.cpp" />
     <ClCompile Include="GlobalExceptionHandler.cpp" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageViewerFilter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />

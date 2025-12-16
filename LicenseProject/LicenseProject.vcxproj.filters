@@ -214,6 +214,9 @@
     <ClCompile Include="Workspace.cpp">
       <Filter>Core\Workspace\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore">

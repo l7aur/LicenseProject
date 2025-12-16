@@ -6,7 +6,6 @@
 #include <mutex>
 #include <atomic>
 #include <vector>
-#include <barrier>
 #include <thread>
 #include <stdexcept>
 #include <functional>
@@ -17,15 +16,11 @@ public:
 	thread_pool()
 		: isDone{ false },
 		worker_mtx{},
-		worker_cv{},
-		stop_barrier{ THREAD_COUNT + 1 }
+		worker_cv{}
 	{
 	}
 
-	~thread_pool() {
-		isDone = true;
-		joinCaller();
-	}
+	~thread_pool() = default;
 
 	void start() {
 		try {
@@ -46,12 +41,17 @@ public:
 		worker_cv.notify_one();
 	}
 
-	virtual void waitForFinish() {
+	void waitForFinish() {
 		isDone = true;
 		worker_cv.notify_all();
-		stop_barrier.arrive_and_wait();
 		joinCaller();
 	}
+
+	void resetThreadPool() {
+		threads.clear();
+		isDone = false;
+	}
+
 
 protected:
 	std::atomic_bool isDone;
@@ -65,17 +65,15 @@ protected:
 			}
 			else {
 				std::unique_lock lk(worker_mtx);
-				worker_cv.wait(lk);
+				worker_cv.wait(lk, [this] { return isDone || !work_q.empty(); });
 			}
 		}
-		stop_barrier.arrive_and_wait();
 	}
 
 private:
 	static const size_t THREAD_COUNT{ 10 };
 	std::vector<std::thread> threads;
 	std::condition_variable worker_cv;
-	std::barrier<> stop_barrier;
 	std::mutex worker_mtx;
 
 	void joinCaller() {

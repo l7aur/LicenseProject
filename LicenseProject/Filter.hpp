@@ -85,7 +85,7 @@ public:
 template<typename Input, typename Output>
 inline std::unique_ptr<DataInternalRepresentation> Filter<Input, Output>::apply(const DataInternalRepresentation* input)  noexcept(false)
 {
-	auto typed = dynamic_cast<const Input*>(input);
+	auto typed = dynamic_cast<const Input*>(input); // todo make the pipeline remember the output and check when adding so that this can become a `static_cast`
 	if (typed == nullptr)
 		throw std::runtime_error("Filter received wrong input type");
 

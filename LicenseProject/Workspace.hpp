@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <memory>
+#include <filesystem>
 
 /**
  * .
@@ -16,9 +17,9 @@ public:
 	/**
 	 * .
 	 * 
-	 * \param numberOfElemets
+	 * \param directoryPath
 	 */
-	Workspace(const size_t numberOfElemets);
+	Workspace(const std::filesystem::path& directoryPath);
 	/**
 	 * .
 	 * 

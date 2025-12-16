@@ -2,54 +2,8 @@
 
 #include <cstdint>
 
-/**
- * .
- */
-class Pixel {
-public:
-	/**
-	 * .
-	 * 
-	 * \param v
-	 */
-	Pixel(const uint8_t v) : value{ v } {}
-	
-	/**
-	 * .
-	 * 
-	 */
-	Pixel() : value{ 0 } {}
-	
-	/**
-	 * .
-	 * 
-	 */
-	~Pixel() = default;
+#include <opencv2/core/hal/interface.h>
 
-	/**
-	 * .
-	 * 
-	 * \return 
-	 */
-	[[nodiscard]] uint8_t getValue() const { return value; }
+using Pixel = uint8_t;
 
-	/**
-	 * .
-	 * 
-	 * \return 
-	 */
-	static Pixel MAX() { return Pixel(UINT8_MAX); }
-	
-	/**
-	 * .
-	 * 
-	 * \return 
-	 */
-	static Pixel MIN() { return Pixel(0); }
-
-private:
-	/**
-	 * .
-	 */
-	uint8_t value;
-};
+#define PixelCVImageTypeMacro CV_8UC1
