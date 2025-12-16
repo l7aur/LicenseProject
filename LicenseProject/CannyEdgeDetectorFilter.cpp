@@ -5,6 +5,9 @@
 #include <filesystem>
 #include <memory>
 
+#include <utility>
+#include <opencv2/imgproc.hpp>
+
 CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
     const int _minIntensity, const int _maxIntensity,
     const int _apertureSize, const bool _accurateGrad,
@@ -25,31 +28,11 @@ void CannyEdgeDetectorFilter::cache()
 
 std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(const CannyEdgeDetectorFilter::input_type* input) noexcept(false)
 {
-    return std::unique_ptr<DataInternalRepresentation>();
-}
+    static_assert(sizeof(Pixel) == 1, "cv::Canny does not support pixel values larger than 255!");
+    static_assert(PixelCVImageTypeMacro == CV_8UC1, "cv::Canny does not support pixel values larger than 255!");
 
-//void CannyEdgeDetectorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)
-//{
-//    try {
-//        for (size_t i = 0; i < wspaces.size(); ++i)
-//            submit([this, &wspaces, i]
-//                {
-//                    Slice& s = std::get<Slice>(*wspaces.at(i));
-//                    cv::Mat m{
-//                        static_cast<int>(s.getHeight()),
-//                        static_cast<int>(s.getWidth()),
-//                        CV_8UC1,
-//                        std::for_each(s.getPixels()->begin(), s.getPixels()->end(), [](const Pixel& p) { return p.getValue(); })
-//                    };
-//                    cv::Mat output{};
-//                    cv::Canny(m, output, minimumIntensity, maximumIntensity, apertureSize, useMoreAccurateGradient);
-//                    size_t bufferSize = (size_t)output.rows * (size_t)output.cols * output.elemSize();
-//                    std::unique_ptr<std::vector<Pixel>> buffer = std::make_unique<std::vector<Pixel>>(bufferSize);
-//                    std::memcpy(buffer.get(), output.data, bufferSize);
-//                    s.setPixels(std::move(buffer));
-//                });
-//    } 
-//    catch (...) {
-//        GlobalExceptionHandler::handle();
-//    }
-//}
+    auto temp = output_type(input->getWidth(), input->getHeight(), input->getPixels()->data());
+    auto out = std::make_unique<output_type>();
+    cv::Canny(temp.getImage(), out->imageHandle(), minimumIntensity, maximumIntensity, apertureSize, useMoreAccurateGradient);
+    return std::move(out);
+}

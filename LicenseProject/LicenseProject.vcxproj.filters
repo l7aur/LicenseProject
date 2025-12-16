@@ -81,6 +81,15 @@
     <Filter Include="Filters\Image Viewer">
       <UniqueIdentifier>{dece3595-d4df-4dc1-8045-ff4523851fcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters\Interface">
+      <UniqueIdentifier>{88a5e71a-4814-45ce-b55f-7075f68967fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Workspace Data Internal Representation\Interface">
+      <UniqueIdentifier>{a6b29858-d1a2-4ca1-b01e-27b2e872d1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Workspace\Core">
+      <UniqueIdentifier>{8664fa9a-ab38-4142-a5dc-9a12941368bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thread_pool.hpp">
@@ -88,9 +97,6 @@
     </ClInclude>
     <ClInclude Include="thread_safe_queue.hpp">
       <Filter>Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="Filter.hpp">
-      <Filter>Filters</Filter>
     </ClInclude>
     <ClInclude Include="Settings.hpp">
       <Filter>Settings</Filter>
@@ -113,12 +119,6 @@
     <ClInclude Include="GlobalExceptionHandler.hpp">
       <Filter>Exception</Filter>
     </ClInclude>
-    <ClInclude Include="DataInternalRepresentation.hpp">
-      <Filter>Core\Workspace\Workspace Data Internal Representation</Filter>
-    </ClInclude>
-    <ClInclude Include="FilterBase.hpp">
-      <Filter>Filters</Filter>
-    </ClInclude>
     <ClInclude Include="Pixel.hpp">
       <Filter>Utils\Pixel</Filter>
     </ClInclude>
@@ -133,9 +133,6 @@
     </ClInclude>
     <ClInclude Include="ExecutionPipeline.hpp">
       <Filter>Core\Pipeline</Filter>
-    </ClInclude>
-    <ClInclude Include="Workspace.hpp">
-      <Filter>Core\Workspace</Filter>
     </ClInclude>
     <ClInclude Include="Image.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
@@ -154,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="ImageViewerFilter.hpp">
       <Filter>Filters\Image Viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterBase.hpp">
+      <Filter>Filters\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter.hpp">
+      <Filter>Filters\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="DataInternalRepresentation.hpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Workspace.hpp">
+      <Filter>Core\Workspace\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -190,9 +199,6 @@
     <ClCompile Include="ExecutionPipeline.cpp">
       <Filter>Core\Pipeline</Filter>
     </ClCompile>
-    <ClCompile Include="Workspace.cpp">
-      <Filter>Core\Workspace</Filter>
-    </ClCompile>
     <ClCompile Include="MeshCreatorFilter.cpp">
       <Filter>Filters\Mesh Creator</Filter>
     </ClCompile>
@@ -204,6 +210,12 @@
     </ClCompile>
     <ClCompile Include="ImageViewerFilter.cpp">
       <Filter>Filters\Image Viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="Workspace.cpp">
+      <Filter>Core\Workspace\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,24 +1,15 @@
 #include "ExecutionPipeline.hpp"
+#include "Workspace.hpp"
 
-ExecutionPipeline::ExecutionPipeline() noexcept(true)
-	: workspace{ 0 }
-{
-}
-
-void ExecutionPipeline::execute() noexcept(false)
+void ExecutionPipeline::execute(Workspace& workspace) noexcept(false)
 {
 	if (useCaching)
-		executeWithCaching();
+		executeWithCaching(workspace);
 	else
-		executeWithoutCaching();
+		executeWithoutCaching(workspace);
 }
 
-/**
- * .
- * 
- * \return 
- */
-void ExecutionPipeline::executeWithCaching() noexcept(false)
+void ExecutionPipeline::executeWithCaching(Workspace& workspace) noexcept(false)
 {
 	for (const auto& currentFilter : filters) {
 		workspace.setFilter(currentFilter.get());
@@ -28,12 +19,7 @@ void ExecutionPipeline::executeWithCaching() noexcept(false)
 	}
 }
 
-/**
- * .
- * 
- * \return 
- */
-void ExecutionPipeline::executeWithoutCaching() noexcept(false)
+void ExecutionPipeline::executeWithoutCaching(Workspace& workspace) noexcept(false)
 {
 	for (const auto& currentFilter : filters) {
 		workspace.setFilter(currentFilter.get());

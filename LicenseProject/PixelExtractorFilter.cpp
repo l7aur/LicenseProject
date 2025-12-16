@@ -14,21 +14,5 @@ void PixelExtractorFilter::cache()
 
 std::unique_ptr<DataInternalRepresentation> PixelExtractorFilter::process(const PixelExtractorFilter::input_type* input) noexcept(false)
 {
-    return std::unique_ptr<DataInternalRepresentation>();
+    return std::make_unique<output_type>(input->getPath());
 }
-
-//void PixelExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)
-//{
-//	try {
-//		for (size_t i = 0; i < wspaces.size(); ++i)
-//			submit(
-//				[wspace = &wspaces, i, &paths]() {
-//					Slice s{ paths.at(i) };
-//					wspace = static_cast<Workspace>(std::move(s));
-//				}
-//			);
-//	}
-//	catch (...) {
-//		GlobalExceptionHandler::handle();
-//	}
-//}

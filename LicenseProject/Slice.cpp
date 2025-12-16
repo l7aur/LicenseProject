@@ -2,18 +2,19 @@
 #include "Pixel.hpp"
 #include "Point3.hpp"
 
+#include <dcmtk/config/osconfig.h>
 #include <dcmtk/dcmdata/dcfilefo.h>
 #include <dcmtk/dcmdata/dcdatset.h>
 #include <dcmtk/dcmimgle/dcmimage.h>
 #include <dcmtk/dcmdata/dcdeftag.h>
 #include <dcmtk/ofstd/ofcond.h>
-#include <string.h>
+#include <dcmtk/dcmimgle/diutils.h>
 #include <cmath>
-#include <exception>
 #include <filesystem>
 #include <memory>
 #include <string>
 #include <utility>
+#include <exception>
 #include <vector>
 
 namespace {
@@ -21,7 +22,7 @@ namespace {
 		const char* temp = nullptr;
 		OFCondition status = dataset->findAndGetString(DCM_PixelSpacing, temp);
 		if (status.bad() || temp == nullptr)
-			throw std::exception(status.text());
+			throw std::runtime_error(status.text());
 
 		std::string str = temp;
 		size_t index = str.find_first_of('\\');
@@ -34,7 +35,7 @@ namespace {
 		const char* temp{ "" };
 		OFCondition status = dataset->findAndGetString(DCM_ImagePositionPatient, temp);
 		if (status.bad() || temp == nullptr)
-			throw std::exception(status.text());
+			throw std::runtime_error(status.text());
 
 		std::string str = temp;
 		size_t index = str.find_first_of('\\');
@@ -49,20 +50,31 @@ namespace {
 		const char* temp{ "" };
 		OFCondition status = dataset->findAndGetString(DCM_SOPInstanceUID, temp);
 		if (status.bad() || temp == nullptr)
-			throw std::exception(status.text());
+			throw std::runtime_error(status.text());
 		return temp;
 	}
 
 }
 
 Slice::Slice(const std::filesystem::path& p)
-	: file{ p }
+	: file{ p },
+	pixels{ std::make_unique<std::vector<Pixel>>() }
 {
 	DicomImage img{ p.string().c_str() };
+
+	if (img.getStatus() != EIS_Normal)
+		throw std::runtime_error("Failed to load DICOM image");
+
 	width = img.getWidth();
 	height = img.getHeight();
-	pixels = std::make_unique<std::vector<Pixel>>(static_cast<size_t>(width * height));
-	std::memmove(pixels.get()->data(), img.getOutputData(8 * sizeof(Pixel)), static_cast<size_t>(width * height) * sizeof(Pixel));
+
+	const auto* src = static_cast<const Pixel*>(img.getOutputData(sizeof(Pixel) * 8 /* bits */));
+
+	if (!src)
+		throw std::runtime_error("No pixel data");
+
+	pixels->assign(src, src + width * height);
+
 	processDataset(p.string());
 }
 
