@@ -18,7 +18,14 @@ class Filter : public FilterBase {
 	static_assert(std::is_base_of<DataInternalRepresentation, Output>::value, "Output must derive from DataInternalRepresentation");
 
 public:
+	/**
+	 * Alias to allow methods to use `Input` as a generic type.
+	 */
 	using input_type = Input;
+	
+	/**
+	 * Alias to allow methods to use `Output` as a generic type.
+	 */
 	using output_type = Output;
 
 	/**
@@ -72,7 +79,7 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	virtual std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) = 0;
+	virtual std::unique_ptr<DataInternalRepresentation> process(const Input* input) noexcept(false) = 0;
 };
 
 template<typename Input, typename Output>

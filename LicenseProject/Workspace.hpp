@@ -53,7 +53,9 @@ public:
 
 	/**
 	 * .
-	 * 
+	 * Assume `internalRepresentation` vector does not resize.
+	 * Assume one thread has access to a single slot in the `internalRepresentation` vector at once.
+	 * Assume `currentFilter` is not dangling.
 	 */
 	void executeFilter();
 
@@ -66,5 +68,5 @@ private:
 	/**
 	 * .
 	 */
-	FilterBase* currentFilter;
+	FilterBase* currentFilter; // todo think about making this shared_ptr so that it cannot be released before executeFilter is done
 };
