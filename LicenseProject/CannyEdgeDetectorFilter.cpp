@@ -1,12 +1,14 @@
 #include "CannyEdgeDetectorFilter.hpp"
 #include "DataInternalRepresentation.hpp"
 #include "Filter.hpp"
+#include "Pixel.hpp"
 
 #include <filesystem>
 #include <memory>
-
 #include <utility>
 #include <opencv2/imgproc.hpp>
+#include <stdexcept>
+#include <opencv2/core/hal/interface.h>
 
 CannyEdgeDetectorFilter::CannyEdgeDetectorFilter(
     const int _minIntensity, const int _maxIntensity,
@@ -26,13 +28,13 @@ void CannyEdgeDetectorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(const CannyEdgeDetectorFilter::input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(CannyEdgeDetectorFilter::input_type* input) noexcept(false)
 {
-    static_assert(sizeof(Pixel) == 1, "cv::Canny does not support pixel values larger than 255!");
-    static_assert(PixelCVImageTypeMacro == CV_8UC1, "cv::Canny does not support pixel values larger than 255!");
+    if (sizeof(Pixel) != 1)
+        throw std::runtime_error("cv::Canny does not support pixel values larger than 255!");
+    if (PixelCVImageTypeMacro != CV_8UC1)
+        throw std::runtime_error("cv::Canny does not support pixel values larger than 255!");
 
-    auto temp = output_type(input->getWidth(), input->getHeight(), input->getPixels()->data());
-    auto out = std::make_unique<output_type>();
-    cv::Canny(temp.getImage(), out->imageHandle(), minimumIntensity, maximumIntensity, apertureSize, useMoreAccurateGradient);
-    return std::move(out);
+    cv::Canny(input->imageHandle(), input->imageHandle(), minimumIntensity, maximumIntensity, apertureSize, useMoreAccurateGradient);
+    return std::make_unique<output_type>(*input);
 }

@@ -71,7 +71,7 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> apply(const DataInternalRepresentation* input)  noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> apply(DataInternalRepresentation* input)  noexcept(false) override;
 
 	/**
 	 * .
@@ -79,13 +79,13 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	virtual std::unique_ptr<DataInternalRepresentation> process(const Input* input) noexcept(false) = 0;
+	virtual std::unique_ptr<DataInternalRepresentation> process(Input* input) noexcept(false) = 0;
 };
 
 template<typename Input, typename Output>
-inline std::unique_ptr<DataInternalRepresentation> Filter<Input, Output>::apply(const DataInternalRepresentation* input)  noexcept(false)
+inline std::unique_ptr<DataInternalRepresentation> Filter<Input, Output>::apply(DataInternalRepresentation* input)  noexcept(false)
 {
-	auto typed = dynamic_cast<const Input*>(input); // todo make the pipeline remember the output and check when adding so that this can become a `static_cast`
+	auto typed = dynamic_cast<Input*>(input); // todo make the pipeline remember the output and check when adding so that this can become a `static_cast`
 	if (typed == nullptr)
 		throw std::runtime_error("Filter received wrong input type");
 

@@ -56,7 +56,7 @@ public:
 	 * \param 
 	 * \return 
 	 */
-	virtual std::unique_ptr<DataInternalRepresentation> apply(const DataInternalRepresentation*) noexcept(false) = 0;
+	virtual std::unique_ptr<DataInternalRepresentation> apply(DataInternalRepresentation*) noexcept(false) = 0;
 
 	/**
 	 * .

@@ -11,7 +11,7 @@
 /**
  * .
  */
-class PointExtractorFilter : public Filter<Slice, PointSet>
+class ImageToPointSetConverterFilter : public Filter<Slice, PointSet>
 {
 public:
 	/**
@@ -19,13 +19,13 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	PointExtractorFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	ImageToPointSetConverterFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
 	
 	/**
 	 * .
 	 * 
 	 */
-	~PointExtractorFilter() = default;
+	~ImageToPointSetConverterFilter() = default;
 
 	/**
 	 * .
@@ -45,6 +45,6 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> process(const input_type* input)  noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(input_type* input)  noexcept(false) override;
 };
 

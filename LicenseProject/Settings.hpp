@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include <opencv2/imgproc.hpp>
 
 namespace Settings {
 	// Pipeline
@@ -8,8 +9,8 @@ namespace Settings {
 	constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/test/" };
 	//constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/CT2/" };
 
-	// PixelExtractorFilter
-	constexpr std::string_view PIXEL_EXTRACTOR_CACHE{ "./cache/pixel_extractor_filter/" };
+	// PathToSliceConverterFilter
+	constexpr std::string_view PATH_TO_SLICE_CONVERTER_CACHE{ "./cache/pixel_extractor_filter/" };
 
 	// CannyEdgeDetectorFilter
 	constexpr int CANNY_MINIMUM_INTENSITY{ 0 };
@@ -19,10 +20,10 @@ namespace Settings {
 	constexpr std::string_view CANNY_CACHE{ "./cache/canny_edge_detector_filter/" };
 
 
-	// PointExtractorFilter
-	constexpr std::string_view POINT_EXTRACTOR_CACHE{ "./cache/point_extractor_filter/" };
+	// ImageToPointSetFilter
+	constexpr std::string_view IMAGE_TO_POINT_SET_CONVERTER_CACHE{ "./cache/image_to_pointset_converter_filter/" };
 
-	// MeshCreatorFilter
+	// PointSetToMeshConverterFilter
 	constexpr std::string_view MESH_CREATOR_CACHE{ "./cache/mesh_creator_filter/" };
 
 	// MeshSerializerFilter
@@ -30,4 +31,13 @@ namespace Settings {
 
 	// ImageViewerFilter
 	constexpr std::string_view IMAGE_VIEWER_CACHE{ "./cache/image_viewer_filter/" };
+
+	// MorphologicalFilter
+	constexpr unsigned int STRUCTURING_ELEMENT_WIDTH{ 1 };
+	constexpr unsigned int STRUCTURING_ELEMENT_HEIGHT{ 1 };
+	constexpr cv::MorphShapes STRUCTURING_ELEMENT_SHAPE{ cv::MorphShapes::MORPH_CROSS };
+	constexpr std::string_view OPENING_CACHE{ "./cache/opening_filter/" };
+
+	// SliceToImageConverterFilter
+	constexpr std::string_view SLICE_TO_IMAGE_CONVERTER_CACHE{ "./cache/slice_to_image_converter_filter/" };
 }

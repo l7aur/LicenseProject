@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Filter.hpp"
-#include "Slice.hpp"
 #include "Image.hpp"
 #include "DataInternalRepresentation.hpp"
 
@@ -11,7 +10,7 @@
 /**
  * .
  */
-class CannyEdgeDetectorFilter : public Filter<Slice, Image>
+class CannyEdgeDetectorFilter : public Filter<Image, Image>
 {
 public:
 	/**
@@ -49,7 +48,7 @@ public:
 	 */
 	void cache() override;
 
-	std::unique_ptr<DataInternalRepresentation> process(const input_type* input) noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(input_type* input) noexcept(false) override;
 
 private:
 	/**

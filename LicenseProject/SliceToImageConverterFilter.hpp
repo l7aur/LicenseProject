@@ -1,36 +1,35 @@
 #pragma once
 
-#include "Image.hpp"
 #include "Filter.hpp"
 #include "DataInternalRepresentation.hpp"
+#include "Slice.hpp"
+#include "Image.hpp"
 
 #include <filesystem>
 #include <memory>
-#include <mutex>
 
 /**
  * .
  */
-class ImageViewerFilter : public Filter<Image, Image>
+class SliceToImageConverterFilter : public Filter<Slice, Image>
 {
 public:
 	/**
 	 * .
 	 * 
-	 * \param _cachePath
 	 */
-	ImageViewerFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath }, mtx{} {}
-	
+	SliceToImageConverterFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+
 	/**
 	 * .
 	 * 
 	 */
-	~ImageViewerFilter() = default;
+	~SliceToImageConverterFilter() = default;
 
 	/**
-	 * .
-	 *
-	 */
+	* .
+	*
+	*/
 	void loadCache() override;
 
 	/**
@@ -46,7 +45,4 @@ public:
 	 * \return
 	 */
 	std::unique_ptr<DataInternalRepresentation> process(input_type* input) noexcept(false) override;
-
-private:
-	std::mutex mtx;
 };
