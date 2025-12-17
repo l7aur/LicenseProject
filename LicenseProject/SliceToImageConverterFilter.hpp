@@ -5,6 +5,9 @@
 #include "Slice.hpp"
 #include "Image.hpp"
 
+#include <filesystem>
+#include <memory>
+
 /**
  * .
  */

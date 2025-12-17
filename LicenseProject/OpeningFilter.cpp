@@ -32,7 +32,7 @@ std::unique_ptr<DataInternalRepresentation> OpeningFilter::process(input_type* i
 	cv::morphologyEx(
 		input->imageHandle(),
 		input->imageHandle(),
-		cv::MorphTypes::MORPH_ERODE,
+		cv::MorphTypes::MORPH_OPEN,
 		cv::getStructuringElement(
 			structuringElementShape, 
 			cv::Size(
