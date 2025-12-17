@@ -15,7 +15,7 @@ void ImageViewerFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> ImageViewerFilter::process(const input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> ImageViewerFilter::process(input_type* input) noexcept(false)
 {
 	std::stringstream ss;
 	ss << std::this_thread::get_id();

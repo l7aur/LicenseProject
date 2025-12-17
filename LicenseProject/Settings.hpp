@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include <opencv2/imgproc.hpp>
 
 namespace Settings {
 	// Pipeline
@@ -30,4 +31,13 @@ namespace Settings {
 
 	// ImageViewerFilter
 	constexpr std::string_view IMAGE_VIEWER_CACHE{ "./cache/image_viewer_filter/" };
+
+	// OpeningFilter
+	constexpr unsigned int STRUCTURING_ELEMENT_WIDTH_OPENING{ 1 };
+	constexpr unsigned int STRUCTURING_ELEMENT_HEIGHT_OPENING{ 1 };
+	constexpr cv::MorphShapes STRUCTURING_ELEMENT_SHAPE_OPENING{ cv::MorphShapes::MORPH_CROSS };
+	constexpr std::string_view OPENING_CACHE{ "./cache/opening_filter/" };
+
+	// SliceToImageConverterFilter
+	constexpr std::string_view SLICE_TO_IMAGE_CONVERTER_CACHE{ "./cache/slice_to_image_cnverter/" };
 }

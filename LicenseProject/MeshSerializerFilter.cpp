@@ -12,7 +12,7 @@ void MeshSerializerFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> MeshSerializerFilter::process(const input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> MeshSerializerFilter::process(input_type* input) noexcept(false)
 {
 	return std::unique_ptr<DataInternalRepresentation>();
 }

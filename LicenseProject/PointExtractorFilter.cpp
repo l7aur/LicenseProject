@@ -12,7 +12,7 @@ void PointExtractorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(const PointExtractorFilter::input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(PointExtractorFilter::input_type* input) noexcept(false)
 {
     return std::unique_ptr<DataInternalRepresentation>();
 }

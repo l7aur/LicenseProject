@@ -45,6 +45,6 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> process(const input_type* input)  noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(input_type* input)  noexcept(false) override;
 };
 

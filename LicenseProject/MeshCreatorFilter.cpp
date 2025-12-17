@@ -12,7 +12,7 @@ void MeshCreatorFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> MeshCreatorFilter::process(const input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> MeshCreatorFilter::process(input_type* input) noexcept(false)
 {
 	return std::unique_ptr<DataInternalRepresentation>();
 }

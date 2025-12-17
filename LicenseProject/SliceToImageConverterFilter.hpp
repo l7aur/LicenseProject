@@ -1,49 +1,45 @@
 #pragma once
 
-#include "Mesh.hpp"
 #include "Filter.hpp"
-#include "PointSet.hpp"
 #include "DataInternalRepresentation.hpp"
-
-#include <filesystem>
-#include <memory>
+#include "Slice.hpp"
+#include "Image.hpp"
 
 /**
  * .
  */
-class MeshCreatorFilter : public Filter<PointSet, Mesh> 
+class SliceToImageConverterFilter : public Filter<Slice, Image>
 {
 public:
 	/**
 	 * .
 	 * 
-	 * \param _cachePath
 	 */
-	MeshCreatorFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
-	
-	/**
-	 * .
-	 * 
-	 */
-	~MeshCreatorFilter() = default;
+	SliceToImageConverterFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
 
 	/**
 	 * .
 	 * 
 	 */
+	~SliceToImageConverterFilter() = default;
+
+	/**
+	* .
+	*
+	*/
 	void loadCache() override;
 
 	/**
 	 * .
-	 * 
+	 *
 	 */
 	void cache() override;
 
 	/**
 	 * .
-	 * 
+	 *
 	 * \param input
-	 * \return 
+	 * \return
 	 */
 	std::unique_ptr<DataInternalRepresentation> process(input_type* input) noexcept(false) override;
 };
