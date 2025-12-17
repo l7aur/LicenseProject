@@ -24,9 +24,6 @@
     <Filter Include="Filters\Canny Edge Detector">
       <UniqueIdentifier>{767e94f0-01bd-4d52-a41a-14fbecb8134d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Point Extractor">
-      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Settings">
       <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
     </Filter>
@@ -96,6 +93,9 @@
     <Filter Include="Filters\Morphological">
       <UniqueIdentifier>{b73d9dbb-fded-45d6-9f8d-14f67b51c738}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters\Image To PointSet">
+      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thread_pool.hpp">
@@ -116,8 +116,8 @@
     <ClInclude Include="CannyEdgeDetectorFilter.hpp">
       <Filter>Filters\Canny Edge Detector</Filter>
     </ClInclude>
-    <ClInclude Include="PointExtractorFilter.hpp">
-      <Filter>Filters\Point Extractor</Filter>
+    <ClInclude Include="ImageToPointSetConverterFilter.hpp">
+      <Filter>Filters\Image To PointSet</Filter>
     </ClInclude>
     <ClInclude Include="PointSet.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>
@@ -190,8 +190,8 @@
     <ClCompile Include="CannyEdgeDetectorFilter.cpp">
       <Filter>Filters\Canny Edge Detector</Filter>
     </ClCompile>
-    <ClCompile Include="PointExtractorFilter.cpp">
-      <Filter>Filters\Point Extractor</Filter>
+    <ClCompile Include="ImageToPointSetConverterFilter.cpp">
+      <Filter>Filters\Image To PointSet</Filter>
     </ClCompile>
     <ClCompile Include="PointSet.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>

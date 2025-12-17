@@ -1,23 +1,23 @@
-#include "PointExtractorFilter.hpp"
+#include "ImageToPointSetConverterFilter.hpp"
 #include "DataInternalRepresentation.hpp"
 #include "Filter.hpp"
 
 #include <memory>
 
-void PointExtractorFilter::loadCache()
+void ImageToPointSetConverterFilter::loadCache()
 {
 }
 
-void PointExtractorFilter::cache()
+void ImageToPointSetConverterFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> PointExtractorFilter::process(PointExtractorFilter::input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> ImageToPointSetConverterFilter::process(ImageToPointSetConverterFilter::input_type* input) noexcept(false)
 {
     return std::unique_ptr<DataInternalRepresentation>();
 }
 
-//void PointExtractorFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)
+//void ImageToPointSetConverterFilter::execute(const std::vector<std::filesystem::path>& paths, std::vector<Workspace>& wspaces)
 //{
 //	try {
 //		for (size_t i = 0; i < wspaces.size(); ++i)

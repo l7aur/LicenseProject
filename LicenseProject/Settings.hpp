@@ -20,8 +20,8 @@ namespace Settings {
 	constexpr std::string_view CANNY_CACHE{ "./cache/canny_edge_detector_filter/" };
 
 
-	// PointExtractorFilter
-	constexpr std::string_view POINT_EXTRACTOR_CACHE{ "./cache/point_extractor_filter/" };
+	// ImageToPointSetFilter
+	constexpr std::string_view IMAGE_TO_POINT_SET_CONVERTER_CACHE{ "./cache/image_to_pointset_converter_filter/" };
 
 	// MeshCreatorFilter
 	constexpr std::string_view MESH_CREATOR_CACHE{ "./cache/mesh_creator_filter/" };
@@ -39,5 +39,5 @@ namespace Settings {
 	constexpr std::string_view OPENING_CACHE{ "./cache/opening_filter/" };
 
 	// SliceToImageConverterFilter
-	constexpr std::string_view SLICE_TO_IMAGE_CONVERTER_CACHE{ "./cache/slice_to_image_cnverter/" };
+	constexpr std::string_view SLICE_TO_IMAGE_CONVERTER_CACHE{ "./cache/slice_to_image_converter_filter/" };
 }

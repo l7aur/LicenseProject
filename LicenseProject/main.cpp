@@ -1,7 +1,7 @@
 #include "ExecutionPipeline.hpp"
 #include "PixelExtractorFilter.hpp"
 #include "CannyEdgeDetectorFilter.hpp"
-#include "PointExtractorFilter.hpp"
+#include "ImageToPointSetConverterFilter.hpp"
 #include "GlobalExceptionHandler.hpp"
 #include "MeshCreatorFilter.hpp"
 #include "MeshSerializerFilter.hpp"
@@ -38,8 +38,8 @@ int main()
 			Settings::OPENING_CACHE));
 		pipeline.addFilter(std::make_unique<ImageViewerFilter>(
 			Settings::IMAGE_VIEWER_CACHE));
-		//pipeline.addFilter(std::make_unique<PointExtractorFilter>(
-			//Settings::POINT_EXTRACTOR_CACHE));
+		//pipeline.addFilter(std::make_unique<ImageToPointSetConverterFilter>(
+			//Settings::IMAGE_TO_POINT_SET_CONVERTER_CACHE));
 		//pipeline.addFilter(std::make_unique<MeshCreatorFilter>(
 			//Settings::MESH_CREATOR_CACHE));
 		//pipeline.addFilter(std::make_unique<MeshSerializerFilter>(

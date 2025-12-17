@@ -151,7 +151,7 @@
     <ClInclude Include="SliceToImageConverterFilter.hpp" />
     <ClInclude Include="Workspace.hpp" />
     <ClInclude Include="Point3.hpp" />
-    <ClInclude Include="PointExtractorFilter.hpp" />
+    <ClInclude Include="ImageToPointSetConverterFilter.hpp" />
     <ClInclude Include="PointSet.hpp" />
     <ClInclude Include="PixelExtractorFilter.hpp" />
     <ClInclude Include="Settings.hpp" />
@@ -174,7 +174,7 @@
     <ClCompile Include="PixelExtractorFilter.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="Point3.cpp" />
-    <ClCompile Include="PointExtractorFilter.cpp" />
+    <ClCompile Include="ImageToPointSetConverterFilter.cpp" />
     <ClCompile Include="PointSet.cpp" />
     <ClCompile Include="Slice.cpp" />
     <ClCompile Include="SliceToImageConverterFilter.cpp" />
