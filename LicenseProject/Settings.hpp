@@ -9,8 +9,8 @@ namespace Settings {
 	constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/test/" };
 	//constexpr std::string_view EXECUTION_PIPELINE_SERIES_PATH{ "../dicom_data/CT2/" };
 
-	// PixelExtractorFilter
-	constexpr std::string_view PIXEL_EXTRACTOR_CACHE{ "./cache/pixel_extractor_filter/" };
+	// PathToSliceConverterFilter
+	constexpr std::string_view PATH_TO_SLICE_CONVERTER_CACHE{ "./cache/pixel_extractor_filter/" };
 
 	// CannyEdgeDetectorFilter
 	constexpr int CANNY_MINIMUM_INTENSITY{ 0 };
@@ -23,7 +23,7 @@ namespace Settings {
 	// ImageToPointSetFilter
 	constexpr std::string_view IMAGE_TO_POINT_SET_CONVERTER_CACHE{ "./cache/image_to_pointset_converter_filter/" };
 
-	// MeshCreatorFilter
+	// PointSetToMeshConverterFilter
 	constexpr std::string_view MESH_CREATOR_CACHE{ "./cache/mesh_creator_filter/" };
 
 	// MeshSerializerFilter

@@ -142,7 +142,7 @@
     <ClInclude Include="Image.hpp" />
     <ClInclude Include="ImageViewerFilter.hpp" />
     <ClInclude Include="Mesh.hpp" />
-    <ClInclude Include="MeshCreatorFilter.hpp" />
+    <ClInclude Include="PointSetToMeshConverterFilter.hpp" />
     <ClInclude Include="MeshSerializerFilter.hpp" />
     <ClInclude Include="MorphologicalFilter.hpp" />
     <ClInclude Include="Path.hpp" />
@@ -153,7 +153,7 @@
     <ClInclude Include="Point3.hpp" />
     <ClInclude Include="ImageToPointSetConverterFilter.hpp" />
     <ClInclude Include="PointSet.hpp" />
-    <ClInclude Include="PixelExtractorFilter.hpp" />
+    <ClInclude Include="PathToSliceConverterFilter.hpp" />
     <ClInclude Include="Settings.hpp" />
     <ClInclude Include="Slice.hpp" />
     <ClInclude Include="thread_pool.hpp" />
@@ -168,10 +168,10 @@
     <ClCompile Include="ImageViewerFilter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="MeshCreatorFilter.cpp" />
+    <ClCompile Include="PointSetToMeshConverterFilter.cpp" />
     <ClCompile Include="MeshSerializerFilter.cpp" />
     <ClCompile Include="MorphologicalFilter.cpp" />
-    <ClCompile Include="PixelExtractorFilter.cpp" />
+    <ClCompile Include="PathToSliceConverterFilter.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="Point3.cpp" />
     <ClCompile Include="ImageToPointSetConverterFilter.cpp" />

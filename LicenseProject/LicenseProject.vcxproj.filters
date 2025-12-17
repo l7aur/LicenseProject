@@ -11,18 +11,12 @@
     <Filter Include="Filters">
       <UniqueIdentifier>{be7fe63c-18b1-4aeb-838c-94650450aef7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Pixel Extractor">
-      <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Miscellaneous">
       <UniqueIdentifier>{c903169b-c472-47ad-874c-e43e858bf649}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Canny Edge Detector">
-      <UniqueIdentifier>{767e94f0-01bd-4d52-a41a-14fbecb8134d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Settings">
       <UniqueIdentifier>{4751149e-782e-4654-8f3d-ab6b8a3db210}</UniqueIdentifier>
@@ -66,17 +60,8 @@
     <Filter Include="Core\Workspace\Workspace Data Internal Representation\Path">
       <UniqueIdentifier>{9da56591-503b-47c3-882c-196d286883a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Mesh Creator">
-      <UniqueIdentifier>{e1dd56ff-e9e6-402a-b840-fb797d6541cf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Workspace\Workspace Data Internal Representation\Mesh">
       <UniqueIdentifier>{95e58b60-1299-4de1-b525-1f6d0f42b916}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Mesh Serializer">
-      <UniqueIdentifier>{67990bb6-e01c-427a-ae16-3288fae7eca5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Image Viewer">
-      <UniqueIdentifier>{dece3595-d4df-4dc1-8045-ff4523851fcc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Filters\Interface">
       <UniqueIdentifier>{88a5e71a-4814-45ce-b55f-7075f68967fd}</UniqueIdentifier>
@@ -87,14 +72,38 @@
     <Filter Include="Core\Workspace\Core">
       <UniqueIdentifier>{8664fa9a-ab38-4142-a5dc-9a12941368bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Slice To Image Converter">
-      <UniqueIdentifier>{065f8820-7a08-40a7-9447-c9e38c8df608}</UniqueIdentifier>
+    <Filter Include="Filters\Simple">
+      <UniqueIdentifier>{7d0649e8-85ac-4521-97d9-b474eb880b9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Morphological">
+    <Filter Include="Filters\Simple\Image Viewer">
+      <UniqueIdentifier>{dece3595-d4df-4dc1-8045-ff4523851fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Simple\Canny Edge Detector">
+      <UniqueIdentifier>{767e94f0-01bd-4d52-a41a-14fbecb8134d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Simple\Mesh Serializer">
+      <UniqueIdentifier>{67990bb6-e01c-427a-ae16-3288fae7eca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Converter">
+      <UniqueIdentifier>{fdc419d5-ee34-4add-987f-efbde117da0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Converter\Image To PointSet">
+      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Converter\PointSet To Mesh">
+      <UniqueIdentifier>{e1dd56ff-e9e6-402a-b840-fb797d6541cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Composite">
+      <UniqueIdentifier>{e0b35e9e-5abd-4263-84b5-cc78528a8b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Simple\Morphological">
       <UniqueIdentifier>{b73d9dbb-fded-45d6-9f8d-14f67b51c738}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Image To PointSet">
-      <UniqueIdentifier>{c2f34673-2171-4986-92aa-74c9e1df4739}</UniqueIdentifier>
+    <Filter Include="Filters\Converter\Slice To Image">
+      <UniqueIdentifier>{065f8820-7a08-40a7-9447-c9e38c8df608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Converter\Path To Slice">
+      <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,17 +116,17 @@
     <ClInclude Include="Settings.hpp">
       <Filter>Settings</Filter>
     </ClInclude>
-    <ClInclude Include="PixelExtractorFilter.hpp">
-      <Filter>Filters\Pixel Extractor</Filter>
+    <ClInclude Include="PathToSliceConverterFilter.hpp">
+      <Filter>Filters\Converter\Path To Slice</Filter>
     </ClInclude>
     <ClInclude Include="Slice.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Slice</Filter>
     </ClInclude>
     <ClInclude Include="CannyEdgeDetectorFilter.hpp">
-      <Filter>Filters\Canny Edge Detector</Filter>
+      <Filter>Filters\Simple\Canny Edge Detector</Filter>
     </ClInclude>
     <ClInclude Include="ImageToPointSetConverterFilter.hpp">
-      <Filter>Filters\Image To PointSet</Filter>
+      <Filter>Filters\Converter\Image To PointSet</Filter>
     </ClInclude>
     <ClInclude Include="PointSet.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>
@@ -146,17 +155,17 @@
     <ClInclude Include="Path.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Path</Filter>
     </ClInclude>
-    <ClInclude Include="MeshCreatorFilter.hpp">
-      <Filter>Filters\Mesh Creator</Filter>
+    <ClInclude Include="PointSetToMeshConverterFilter.hpp">
+      <Filter>Filters\Converter\PointSet To Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="MeshSerializerFilter.hpp">
-      <Filter>Filters\Mesh Serializer</Filter>
+      <Filter>Filters\Simple\Mesh Serializer</Filter>
     </ClInclude>
     <ClInclude Include="ImageViewerFilter.hpp">
-      <Filter>Filters\Image Viewer</Filter>
+      <Filter>Filters\Simple\Image Viewer</Filter>
     </ClInclude>
     <ClInclude Include="FilterBase.hpp">
       <Filter>Filters\Interface</Filter>
@@ -171,27 +180,27 @@
       <Filter>Core\Workspace\Core</Filter>
     </ClInclude>
     <ClInclude Include="MorphologicalFilter.hpp">
-      <Filter>Filters\Morphological</Filter>
+      <Filter>Filters\Simple\Morphological</Filter>
     </ClInclude>
     <ClInclude Include="SliceToImageConverterFilter.hpp">
-      <Filter>Filters\Slice To Image Converter</Filter>
+      <Filter>Filters\Converter\Slice To Image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="PixelExtractorFilter.cpp">
-      <Filter>Filters\Pixel Extractor</Filter>
+    <ClCompile Include="PathToSliceConverterFilter.cpp">
+      <Filter>Filters\Converter\Path To Slice</Filter>
     </ClCompile>
     <ClCompile Include="Slice.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Slice</Filter>
     </ClCompile>
     <ClCompile Include="CannyEdgeDetectorFilter.cpp">
-      <Filter>Filters\Canny Edge Detector</Filter>
+      <Filter>Filters\Simple\Canny Edge Detector</Filter>
     </ClCompile>
     <ClCompile Include="ImageToPointSetConverterFilter.cpp">
-      <Filter>Filters\Image To PointSet</Filter>
+      <Filter>Filters\Converter\Image To PointSet</Filter>
     </ClCompile>
     <ClCompile Include="PointSet.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\PointSet</Filter>
@@ -211,17 +220,17 @@
     <ClCompile Include="ExecutionPipeline.cpp">
       <Filter>Core\Pipeline</Filter>
     </ClCompile>
-    <ClCompile Include="MeshCreatorFilter.cpp">
-      <Filter>Filters\Mesh Creator</Filter>
+    <ClCompile Include="PointSetToMeshConverterFilter.cpp">
+      <Filter>Filters\Converter\PointSet To Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="MeshSerializerFilter.cpp">
-      <Filter>Filters\Mesh Serializer</Filter>
+      <Filter>Filters\Simple\Mesh Serializer</Filter>
     </ClCompile>
     <ClCompile Include="ImageViewerFilter.cpp">
-      <Filter>Filters\Image Viewer</Filter>
+      <Filter>Filters\Simple\Image Viewer</Filter>
     </ClCompile>
     <ClCompile Include="Workspace.cpp">
       <Filter>Core\Workspace\Core</Filter>
@@ -230,10 +239,10 @@
       <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
     </ClCompile>
     <ClCompile Include="MorphologicalFilter.cpp">
-      <Filter>Filters\Morphological</Filter>
+      <Filter>Filters\Simple\Morphological</Filter>
     </ClCompile>
     <ClCompile Include="SliceToImageConverterFilter.cpp">
-      <Filter>Filters\Slice To Image Converter</Filter>
+      <Filter>Filters\Converter\Slice To Image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
