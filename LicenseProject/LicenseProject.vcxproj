@@ -144,7 +144,7 @@
     <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="MeshCreatorFilter.hpp" />
     <ClInclude Include="MeshSerializerFilter.hpp" />
-    <ClInclude Include="OpeningFilter.hpp" />
+    <ClInclude Include="MorphologicalFilter.hpp" />
     <ClInclude Include="Path.hpp" />
     <ClInclude Include="Pixel.hpp" />
     <ClInclude Include="Point2.hpp" />
@@ -170,7 +170,7 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshCreatorFilter.cpp" />
     <ClCompile Include="MeshSerializerFilter.cpp" />
-    <ClCompile Include="OpeningFilter.cpp" />
+    <ClCompile Include="MorphologicalFilter.cpp" />
     <ClCompile Include="PixelExtractorFilter.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="Point3.cpp" />

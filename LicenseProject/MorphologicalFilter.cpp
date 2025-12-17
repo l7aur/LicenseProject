@@ -1,4 +1,4 @@
-#include "OpeningFilter.hpp"
+#include "MorphologicalFilter.hpp"
 #include "DataInternalRepresentation.hpp"
 #include "Filter.hpp"
 
@@ -7,32 +7,34 @@
 #include <memory>
 #include <filesystem>
 
-OpeningFilter::OpeningFilter(
+MorphologicalFilter::MorphologicalFilter(
 	const unsigned int _structuringElementWidth,
 	const unsigned int _structuringElementHeight,
 	cv::MorphShapes _structuringElementShape,
+	cv::MorphTypes _morphologicalType,
 	const std::filesystem::path& _cachePath)
 	: Filter{ _cachePath },
 	structuringElementShape{ _structuringElementShape },
 	structuringElementHeight{ _structuringElementHeight },
-	structuringElementWidth{ _structuringElementWidth }
+	structuringElementWidth{ _structuringElementWidth },
+	morphologicalType{ _morphologicalType }
 {
 }
 
-void OpeningFilter::loadCache()
+void MorphologicalFilter::loadCache()
 {
 }
 
-void OpeningFilter::cache()
+void MorphologicalFilter::cache()
 {
 }
 
-std::unique_ptr<DataInternalRepresentation> OpeningFilter::process(input_type* input) noexcept(false)
+std::unique_ptr<DataInternalRepresentation> MorphologicalFilter::process(input_type* input) noexcept(false)
 {
 	cv::morphologyEx(
 		input->imageHandle(),
 		input->imageHandle(),
-		cv::MorphTypes::MORPH_OPEN,
+		morphologicalType,
 		cv::getStructuringElement(
 			structuringElementShape, 
 			cv::Size(

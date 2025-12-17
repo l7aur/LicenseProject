@@ -9,7 +9,7 @@
 /**
  * .
  */
-class OpeningFilter : public Filter<Image, Image>
+class MorphologicalFilter : public Filter<Image, Image>
 {
 public:
 	/**
@@ -18,19 +18,21 @@ public:
 	 * \param _structuringElementWidth
 	 * \param _structuringElementHeight
 	 * \param _structuringElementShape
+	 * \param _morphologicalType
 	 * \param _cachePath
 	 */
-	OpeningFilter(
+	MorphologicalFilter(
 		const unsigned int _structuringElementWidth,
 		const unsigned int _structuringElementHeight,
 		cv::MorphShapes _structuringElementShape,
+		cv::MorphTypes _morphologicalType,
 		const std::filesystem::path& _cachePath);
 	
 	/**
 	 * .
 	 * 
 	 */
-	~OpeningFilter() = default;
+	~MorphologicalFilter() = default;
 
 	/**
 	* .
@@ -67,4 +69,9 @@ private:
 	 * .
 	 */
 	cv::MorphShapes structuringElementShape;
+
+	/**
+	 * .
+	 */
+	cv::MorphTypes morphologicalType;
 };

@@ -6,7 +6,7 @@
 #include "MeshCreatorFilter.hpp"
 #include "MeshSerializerFilter.hpp"
 #include "ImageViewerFilter.hpp"
-#include "OpeningFilter.hpp"
+#include "MorphologicalFilter.hpp"
 #include "Settings.hpp"
 #include "SliceToImageConverterFilter.hpp"
 #include "Workspace.hpp"
@@ -30,10 +30,11 @@ int main()
 			Settings::CANNY_APERTURE_SIZE,
 			Settings::CANNY_ACCURATE_GRADIENT,
 			Settings::CANNY_CACHE));
-		pipeline.addFilter(std::make_unique<OpeningFilter>(
-			Settings::STRUCTURING_ELEMENT_WIDTH_OPENING,
-			Settings::STRUCTURING_ELEMENT_HEIGHT_OPENING,
-			Settings::STRUCTURING_ELEMENT_SHAPE_OPENING,
+		pipeline.addFilter(std::make_unique<MorphologicalFilter>(
+			Settings::STRUCTURING_ELEMENT_WIDTH,
+			Settings::STRUCTURING_ELEMENT_HEIGHT,
+			Settings::STRUCTURING_ELEMENT_SHAPE,
+			cv::MorphTypes::MORPH_OPEN,
 			Settings::OPENING_CACHE));
 		pipeline.addFilter(std::make_unique<ImageViewerFilter>(
 			Settings::IMAGE_VIEWER_CACHE));

@@ -90,11 +90,11 @@
     <Filter Include="Core\Workspace\Core">
       <UniqueIdentifier>{8664fa9a-ab38-4142-a5dc-9a12941368bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Filters\Opening Filter">
-      <UniqueIdentifier>{b73d9dbb-fded-45d6-9f8d-14f67b51c738}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Filters\Slice To Image Converter Filter">
+    <Filter Include="Filters\Slice To Image Converter">
       <UniqueIdentifier>{065f8820-7a08-40a7-9447-c9e38c8df608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filters\Morphological">
+      <UniqueIdentifier>{b73d9dbb-fded-45d6-9f8d-14f67b51c738}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -170,11 +170,11 @@
     <ClInclude Include="Workspace.hpp">
       <Filter>Core\Workspace\Core</Filter>
     </ClInclude>
-    <ClInclude Include="OpeningFilter.hpp">
-      <Filter>Filters\Opening Filter</Filter>
+    <ClInclude Include="MorphologicalFilter.hpp">
+      <Filter>Filters\Morphological</Filter>
     </ClInclude>
     <ClInclude Include="SliceToImageConverterFilter.hpp">
-      <Filter>Filters\Slice To Image Converter Filter</Filter>
+      <Filter>Filters\Slice To Image Converter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -229,11 +229,11 @@
     <ClCompile Include="Image.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Image</Filter>
     </ClCompile>
-    <ClCompile Include="OpeningFilter.cpp">
-      <Filter>Filters\Opening Filter</Filter>
+    <ClCompile Include="MorphologicalFilter.cpp">
+      <Filter>Filters\Morphological</Filter>
     </ClCompile>
     <ClCompile Include="SliceToImageConverterFilter.cpp">
-      <Filter>Filters\Slice To Image Converter Filter</Filter>
+      <Filter>Filters\Slice To Image Converter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

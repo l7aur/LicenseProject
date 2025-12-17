@@ -32,10 +32,10 @@ namespace Settings {
 	// ImageViewerFilter
 	constexpr std::string_view IMAGE_VIEWER_CACHE{ "./cache/image_viewer_filter/" };
 
-	// OpeningFilter
-	constexpr unsigned int STRUCTURING_ELEMENT_WIDTH_OPENING{ 1 };
-	constexpr unsigned int STRUCTURING_ELEMENT_HEIGHT_OPENING{ 1 };
-	constexpr cv::MorphShapes STRUCTURING_ELEMENT_SHAPE_OPENING{ cv::MorphShapes::MORPH_CROSS };
+	// MorphologicalFilter
+	constexpr unsigned int STRUCTURING_ELEMENT_WIDTH{ 1 };
+	constexpr unsigned int STRUCTURING_ELEMENT_HEIGHT{ 1 };
+	constexpr cv::MorphShapes STRUCTURING_ELEMENT_SHAPE{ cv::MorphShapes::MORPH_CROSS };
 	constexpr std::string_view OPENING_CACHE{ "./cache/opening_filter/" };
 
 	// SliceToImageConverterFilter
