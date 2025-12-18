@@ -16,7 +16,7 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	FilterBase(const std::filesystem::path& _cachePath) : cachePath{ _cachePath } {}
+	FilterBase(const std::filesystem::path& _cachePath) : cachePath{ _cachePath } { std::filesystem::create_directories(cachePath); }
 
 	/**
 	 * .
@@ -65,7 +65,7 @@ public:
 	 */
 	const std::filesystem::path& getCachePath() const { return cachePath; }
 
-private:
+protected:
 	/**
 	 * .
 	 */

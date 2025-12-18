@@ -6,6 +6,7 @@
 
 #include <string>
 #include <vector>
+#include <utility>
 
 /**
  * .
@@ -21,7 +22,7 @@ public:
 	 * \param pixSpacingX
 	 * \param pixSpacingY
 	 */
-	PointSet(const std::string& uid_, const Point3 tlhc_, const float pixSpacingX, const float pixSpacingY);
+	PointSet(const Point3& tlhc_, const std::pair<float, float>& pixelSpacing_);
 
 	/**
 	 * .
@@ -44,12 +45,21 @@ public:
 	 */
 	void insert(const Point2 p);
 
-private:
 	/**
 	 * .
+	 * 
+	 * \return 
 	 */
-	const std::string uid;
+	[[nodiscard]] std::string toString2D() const;
 
+	/**
+	 * .
+	 * 
+	 * \return 
+	 */
+	[[nodiscard]] std::string toString3D() const;
+
+private:
 	/**
 	 * .
 	 */
@@ -58,12 +68,7 @@ private:
 	/**
 	 * .
 	 */
-	const float pixelSpacingX;
-
-	/**
-	 * .
-	 */
-	const float pixelSpacingY;
+	std::pair<float, float> pixelSpacing;
 
 	/**
 	 * .

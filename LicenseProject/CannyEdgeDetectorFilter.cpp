@@ -30,6 +30,7 @@ void CannyEdgeDetectorFilter::cache()
 
 std::unique_ptr<DataInternalRepresentation> CannyEdgeDetectorFilter::process(CannyEdgeDetectorFilter::input_type* input) noexcept(false)
 {
+    // TODO: ideally this should happen at compile time iff the filter is used in the pipeline
     if (sizeof(Pixel) != 1)
         throw std::runtime_error("cv::Canny does not support pixel values larger than 255!");
     if (PixelCVImageTypeMacro != CV_8UC1)

@@ -105,6 +105,9 @@
     <Filter Include="Filters\Converter\Path To Slice">
       <UniqueIdentifier>{4d83e6f6-7e96-40d4-b832-3734f94cac8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Filters\Simple\PointSet Viewer">
+      <UniqueIdentifier>{03071429-c4ee-4739-9040-453c61e122a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thread_pool.hpp">
@@ -185,6 +188,9 @@
     <ClInclude Include="SliceToImageConverterFilter.hpp">
       <Filter>Filters\Converter\Slice To Image</Filter>
     </ClInclude>
+    <ClInclude Include="PointSetViewerFilter.hpp">
+      <Filter>Filters\Simple\PointSet Viewer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -243,6 +249,12 @@
     </ClCompile>
     <ClCompile Include="SliceToImageConverterFilter.cpp">
       <Filter>Filters\Converter\Slice To Image</Filter>
+    </ClCompile>
+    <ClCompile Include="PointSetViewerFilter.cpp">
+      <Filter>Filters\Simple\PointSet Viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterBase.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Filter.hpp"
-#include "Slice.hpp"
+#include "Image.hpp"
 #include "PointSet.hpp"
 #include "DataInternalRepresentation.hpp"
+#include "Pixel.hpp"
 
 #include <filesystem>
 #include <memory>
@@ -11,15 +12,20 @@
 /**
  * .
  */
-class ImageToPointSetConverterFilter : public Filter<Slice, PointSet>
+class ImageToPointSetConverterFilter : public Filter<Image, PointSet>
 {
 public:
 	/**
 	 * .
 	 * 
+	 * \param thresholdMin
+	 * \param thresholdMax
 	 * \param _cachePath
 	 */
-	ImageToPointSetConverterFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	ImageToPointSetConverterFilter(
+		const Pixel& thresholdMin_,
+		const Pixel& thresholdMax_,
+		const std::filesystem::path& cachePath_);
 	
 	/**
 	 * .
@@ -45,6 +51,10 @@ public:
 	 * \param input
 	 * \return 
 	 */
-	std::unique_ptr<DataInternalRepresentation> process(input_type* input)  noexcept(false) override;
+	std::unique_ptr<DataInternalRepresentation> process(input_type* input) noexcept(false) override;
+
+private:
+	const Pixel thresholdMin;
+	const Pixel thresholdMax;
 };
 

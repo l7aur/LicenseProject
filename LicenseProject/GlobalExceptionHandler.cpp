@@ -2,9 +2,13 @@
 
 #include <exception>
 #include <iostream>
+#include <mutex>
+
+std::mutex GlobalExceptionHandler::mtx{};
 
 void GlobalExceptionHandler::handle()
 {
+	mtx.lock();
 	try {
 		throw;
 	}
@@ -14,4 +18,5 @@ void GlobalExceptionHandler::handle()
 	catch (...) {
 		std::cout << "[EXCEPTION] : unknown" << std::endl;
 	}
+	mtx.unlock();
 }

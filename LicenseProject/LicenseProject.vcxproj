@@ -148,6 +148,7 @@
     <ClInclude Include="Path.hpp" />
     <ClInclude Include="Pixel.hpp" />
     <ClInclude Include="Point2.hpp" />
+    <ClInclude Include="PointSetViewerFilter.hpp" />
     <ClInclude Include="SliceToImageConverterFilter.hpp" />
     <ClInclude Include="Workspace.hpp" />
     <ClInclude Include="Point3.hpp" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="CannyEdgeDetectorFilter.cpp" />
+    <ClCompile Include="FilterBase.cpp" />
     <ClCompile Include="GlobalExceptionHandler.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageViewerFilter.cpp" />
@@ -176,6 +178,7 @@
     <ClCompile Include="Point3.cpp" />
     <ClCompile Include="ImageToPointSetConverterFilter.cpp" />
     <ClCompile Include="PointSet.cpp" />
+    <ClCompile Include="PointSetViewerFilter.cpp" />
     <ClCompile Include="Slice.cpp" />
     <ClCompile Include="SliceToImageConverterFilter.cpp" />
     <ClCompile Include="Vector3.cpp" />

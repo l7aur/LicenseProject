@@ -61,7 +61,8 @@ protected:
 		while (!isDone || !work_q.empty()) {
 			std::function<void()> task;
 			if (work_q.try_pop(task)) {
-				task();
+				try { task(); }
+				catch (...) { GlobalExceptionHandler::handle(); }
 			}
 			else {
 				std::unique_lock lk(worker_mtx);
