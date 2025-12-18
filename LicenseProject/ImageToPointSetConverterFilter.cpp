@@ -33,5 +33,6 @@ std::unique_ptr<DataInternalRepresentation> ImageToPointSetConverterFilter::proc
         for (int j = 0; j < input->getWidth(); j++)
             if (thresholdMin <= input->at(i, j) && input->at(i, j) <= thresholdMax)
                 out->insert(Point2{ static_cast<double>(j), static_cast<double>(i) });
+
     return std::move(out);
 }

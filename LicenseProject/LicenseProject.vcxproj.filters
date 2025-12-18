@@ -253,9 +253,6 @@
     <ClCompile Include="PointSetViewerFilter.cpp">
       <Filter>Filters\Simple\PointSet Viewer</Filter>
     </ClCompile>
-    <ClCompile Include="FilterBase.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitignore">

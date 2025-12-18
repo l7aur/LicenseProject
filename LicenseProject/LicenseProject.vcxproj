@@ -164,7 +164,6 @@
   <ItemGroup>
     <ClCompile Include="ExecutionPipeline.cpp" />
     <ClCompile Include="CannyEdgeDetectorFilter.cpp" />
-    <ClCompile Include="FilterBase.cpp" />
     <ClCompile Include="GlobalExceptionHandler.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageViewerFilter.cpp" />

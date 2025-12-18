@@ -11,7 +11,7 @@ PointSet::PointSet(const Point3& tlhc_, const std::pair<float, float>& pixelSpac
 {
 }
 
-Point3 PointSet::at(const size_t index) const {
+Point3 PointSet::at3D(const size_t index) const {
 	return Point3(
 		tlhc.getX() + points.at(index).getX(),
 		tlhc.getY() + points.at(index).getY(),
@@ -19,7 +19,11 @@ Point3 PointSet::at(const size_t index) const {
 	);
 }
 
-void PointSet::insert(const Point2 p)
+Point2 PointSet::at2D(const size_t index) const {
+	return points.at(index);
+}
+
+void PointSet::insert(const Point2& p)
 {
 	points.push_back(p);
 }
@@ -53,15 +57,3 @@ std::string PointSet::toString3D() const
 
 	return out.append("\n");
 }
-
-//void PointSet::serialize(const std::filesystem::path& wherePath) const
-//{
-//	const std::filesystem::path filePath = wherePath / (uid + ".txt");
-//	std::ofstream fout{ filePath };
-//	fout << points.size() << '\n';
-//	fout << tlhc.x << ',' << tlhc.y << ',' << tlhc.z << '\n';
-//	fout << pixelSpacingX << ',' << pixelSpacingY << '\n';
-//	for (const auto& [x, y] : points)
-//		fout << x << ',' << y << '\n';
-//	fout.close();
-//}

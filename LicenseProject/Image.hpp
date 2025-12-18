@@ -44,42 +44,42 @@ public:
 	/**
 	 * .
 	 */
-	const cv::Mat& getImage() const { return img; };
+	[[nodiscard]] const cv::Mat& getImage() const { return img; };
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	cv::Mat& imageHandle() { return img; }
+	[[nodiscard]] cv::Mat& imageHandle() { return img; }
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	const std::pair<float, float>& getPixelSpacing() const { return pixelSpacing; }
+	[[nodiscard]] const std::pair<float, float>& getPixelSpacing() const { return pixelSpacing; }
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	const Point3& getTLHC() const { return tlhc; }
+	[[nodiscard]] const Point3& getTLHC() const { return tlhc; }
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	const int getWidth() const { return img.cols; }
+	[[nodiscard]] const int getWidth() const { return img.cols; }
 	
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	const int getHeight() const { return img.rows; }
+	[[nodiscard]] const int getHeight() const { return img.rows; }
 
 	const Pixel& at(int i, int j) const { return img.at<Pixel>(i, j); }
 

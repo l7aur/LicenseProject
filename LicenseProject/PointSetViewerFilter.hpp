@@ -16,10 +16,16 @@ class PointSetViewerFilter : public Filter<PointSet, PointSet>
 public:
 	/**
 	 * .
-	 * 
-	 * \param _cache
 	 */
-	PointSetViewerFilter(const std::filesystem::path& _cachePath);
+	enum Type { _2D, _3D };
+
+	/**
+	 * .
+	 * 
+	 * \param t
+	 * \param _cachePath
+	 */
+	PointSetViewerFilter(const Type t, const std::filesystem::path& _cachePath);
 	
 	/**
 	 * .
@@ -49,4 +55,5 @@ public:
 
 private:
 	std::mutex mtx;
+	Type viewType;
 };

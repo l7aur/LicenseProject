@@ -5,7 +5,6 @@
 
 #include <filesystem>
 #include <memory>
-#include <utility>
 #include <opencv2/imgproc.hpp>
 #include <stdexcept>
 #include <opencv2/core/hal/interface.h>

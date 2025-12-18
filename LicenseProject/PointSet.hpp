@@ -36,14 +36,22 @@ public:
 	 * \param index
 	 * \return 
 	 */
-	[[nodiscard]] Point3 at(const size_t index) const;
+	[[nodiscard]] Point3 at3D(const size_t index) const;
+
+	/**
+	 * .
+	 * 
+	 * \param index
+	 * \return 
+	 */
+	[[nodiscard]] Point2 at2D(const size_t index) const;
 
 	/**
 	 * .
 	 * 
 	 * \param p
 	 */
-	void insert(const Point2 p);
+	void insert(const Point2& p);
 
 	/**
 	 * .

@@ -38,6 +38,7 @@ int main()
 			Settings::IMAGE_TO_POINT_SET_CONVERTER_THRESHOLD_MAX,
 			Settings::IMAGE_TO_POINT_SET_CONVERTER_CACHE));
 		pipeline.addFilter(std::make_unique<PointSetViewerFilter>(
+			PointSetViewerFilter::Type::_3D,
 			Settings::POINT_SET_VIEWER_CACHE));
 
 		pipeline.execute(workspace);

@@ -63,7 +63,7 @@ public:
 	 *
 	 * \return
 	 */
-	const std::filesystem::path& getCachePath() const { return cachePath; }
+	[[nodiscard]] const std::filesystem::path& getCachePath() const { return cachePath; }
 
 protected:
 	/**
