@@ -1,5 +1,7 @@
 #pragma once
 
+#include <mutex>
+
 /**
  * .
  */
@@ -10,4 +12,10 @@ public:
 	 * 
 	 */
 	static void handle();
+
+private:
+	/**
+	 * .
+	 */
+	static std::mutex mtx;
 };

@@ -2,6 +2,7 @@
 
 #include <string_view>
 #include <opencv2/imgproc.hpp>
+#include "Pixel.hpp"
 
 namespace Settings {
 	// Pipeline
@@ -40,4 +41,9 @@ namespace Settings {
 
 	// SliceToImageConverterFilter
 	constexpr std::string_view SLICE_TO_IMAGE_CONVERTER_CACHE{ "./cache/slice_to_image_converter_filter/" };
+
+	// PointSetViewerFilter
+	constexpr std::string_view POINT_SET_VIEWER_CACHE{ "./cache/pointset_viewer_filter/" };
+	constexpr Pixel IMAGE_TO_POINT_SET_CONVERTER_THRESHOLD_MIN{ (PixelMin() + PixelMax()) / 2 };
+	constexpr Pixel IMAGE_TO_POINT_SET_CONVERTER_THRESHOLD_MAX{ PixelMax() };
 }

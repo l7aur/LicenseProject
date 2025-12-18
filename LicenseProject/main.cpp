@@ -12,6 +12,7 @@
 #include "Workspace.hpp"
 
 #include <memory>
+#include "PointSetViewerFilter.hpp"
 
 int main() 
 {
@@ -30,20 +31,14 @@ int main()
 			Settings::CANNY_APERTURE_SIZE,
 			Settings::CANNY_ACCURATE_GRADIENT,
 			Settings::CANNY_CACHE));
-		pipeline.addFilter(std::make_unique<MorphologicalFilter>(
-			Settings::STRUCTURING_ELEMENT_WIDTH,
-			Settings::STRUCTURING_ELEMENT_HEIGHT,
-			Settings::STRUCTURING_ELEMENT_SHAPE,
-			cv::MorphTypes::MORPH_OPEN,
-			Settings::OPENING_CACHE));
 		pipeline.addFilter(std::make_unique<ImageViewerFilter>(
 			Settings::IMAGE_VIEWER_CACHE));
-		//pipeline.addFilter(std::make_unique<ImageToPointSetConverterFilter>(
-			//Settings::IMAGE_TO_POINT_SET_CONVERTER_CACHE));
-		//pipeline.addFilter(std::make_unique<PointSetToMeshConverterFilter>(
-			//Settings::MESH_CREATOR_CACHE));
-		//pipeline.addFilter(std::make_unique<MeshSerializerFilter>(
-			//Settings::MESH_SERIALIZER_CACHE));
+		pipeline.addFilter(std::make_unique<ImageToPointSetConverterFilter>(
+			Settings::IMAGE_TO_POINT_SET_CONVERTER_THRESHOLD_MIN,
+			Settings::IMAGE_TO_POINT_SET_CONVERTER_THRESHOLD_MAX,
+			Settings::IMAGE_TO_POINT_SET_CONVERTER_CACHE));
+		pipeline.addFilter(std::make_unique<PointSetViewerFilter>(
+			Settings::POINT_SET_VIEWER_CACHE));
 
 		pipeline.execute(workspace);
 	}
@@ -52,3 +47,5 @@ int main()
 	}
 	return 0;
 }
+
+// TODO: nothing will work if the study is not in canonical coordinates

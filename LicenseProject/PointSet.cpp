@@ -1,7 +1,13 @@
 #include "PointSet.hpp"
+#include "Point2.hpp"
+#include "Point3.hpp"
 
-PointSet::PointSet(const std::string& uid_, const Point3 tlhc_, const float pixSpacingX, const float pixSpacingY)
-	: uid{uid_}, tlhc{ tlhc_ }, pixelSpacingX{ pixSpacingX }, pixelSpacingY{ pixSpacingY }
+#include <utility>
+#include <string>
+#include <algorithm>
+
+PointSet::PointSet(const Point3& tlhc_, const std::pair<float, float>& pixelSpacing_)
+	: tlhc{ tlhc_ }, pixelSpacing{ pixelSpacing_ }
 {
 }
 
@@ -16,6 +22,36 @@ Point3 PointSet::at(const size_t index) const {
 void PointSet::insert(const Point2 p)
 {
 	points.push_back(p);
+}
+
+std::string PointSet::toString2D() const
+{
+	std::string out{ "----- PointSet 2D -----\n\n" };
+	std::for_each(points.begin(), points.end(), [&out](const Point2& p) {
+		out += "[";
+		out += std::to_string(p.getX());
+		out += "; ";
+		out += std::to_string(p.getY());
+		out += "]\n";
+		});
+
+	return out.append("\n");
+}
+
+std::string PointSet::toString3D() const
+{
+	std::string out{ "----- PointSet 3D -----\n\n" };
+	std::for_each(points.begin(), points.end(), [&out, _tlhc = tlhc](const Point2& p) {
+		out += "[";
+		out += std::to_string(p.getX() + _tlhc.getX());
+		out += "; ";
+		out += std::to_string(p.getY() + _tlhc.getY());
+		out += "; ";
+		out += std::to_string(_tlhc.getZ());
+		out += "]\n";
+		});
+
+	return out.append("\n");
 }
 
 //void PointSet::serialize(const std::filesystem::path& wherePath) const

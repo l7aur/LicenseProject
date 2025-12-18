@@ -57,14 +57,7 @@ public:
 	 * 
 	 * \return 
 	 */
-	[[nodiscard]] const float getPixelSpacingX() const { return pixelSpacing.first; }
-	
-	/**
-	 * .
-	 * 
-	 * \return 
-	 */
-	[[nodiscard]] const float getPixelSpacingY() const { return pixelSpacing.second; }
+	[[nodiscard]] std::pair<float, float> getPixelSpacing() const { return pixelSpacing; }
 
 	/**
 	 * .
@@ -78,26 +71,26 @@ public:
 	 * 
 	 * \return 
 	 */
-	[[nodiscard]] const unsigned long getWidth() const { return width; }
+	[[nodiscard]] unsigned long getWidth() const { return width; }
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	[[nodiscard]] const unsigned long getHeight() const { return height; }
+	[[nodiscard]] unsigned long getHeight() const { return height; }
 
 	/**
 	 * .
 	 * 
 	 * \return 
 	 */
-	[[nodiscard]] const Point3 getTLHC() const { return tlhc; }
+	[[nodiscard]] Point3 getTLHC() const { return tlhc; }
 
 	/**
 	 * .
 	 */
-	[[nodiscard]] const std::string getUID() const { return uid; };
+	[[nodiscard]] std::string getUID() const { return uid; };
 
 	/**
 	 * .
