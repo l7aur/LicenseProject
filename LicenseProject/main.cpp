@@ -4,7 +4,7 @@
 #include "ImageToPointSetConverterFilter.hpp"
 #include "GlobalExceptionHandler.hpp"
 #include "PointSetToMeshConverterFilter.hpp"
-#include "MeshSerializerFilter.hpp"
+#include "MeshSerializerOBJFilter.hpp"
 #include "ImageViewerFilter.hpp"
 #include "MorphologicalFilter.hpp"
 #include "Settings.hpp"
@@ -40,6 +40,10 @@ int main()
 		pipeline.addFilter(std::make_unique<PointSetViewerFilter>(
 			PointSetViewerFilter::Type::_3D,
 			Settings::POINT_SET_VIEWER_CACHE));
+		pipeline.addFilter(std::make_unique<PointSetToMeshConverterFilter>(
+			Settings::POINT_SET_TO_MESH_CONVERTER_CACHE));
+		pipeline.addFilter(std::make_unique<MeshSerializerOBJFilter>(
+			Settings::MESH_SERIALIZER_CACHE));
 
 		pipeline.execute(workspace);
 	}

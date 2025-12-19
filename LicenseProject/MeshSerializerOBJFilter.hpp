@@ -10,7 +10,7 @@
 /**
  * .
  */
-class MeshSerializerFilter : public Filter<Mesh, Mesh> 
+class MeshSerializerOBJFilter : public Filter<Mesh, Mesh> 
 {
 public:
 	/**
@@ -18,13 +18,13 @@ public:
 	 * 
 	 * \param _cachePath
 	 */
-	MeshSerializerFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
+	MeshSerializerOBJFilter(const std::filesystem::path& _cachePath) : Filter{ _cachePath } {}
 
 	/**
 	 * .
 	 * 
 	 */
-	~MeshSerializerFilter() = default;
+	~MeshSerializerOBJFilter() = default;
 
 	/**
 	 * .

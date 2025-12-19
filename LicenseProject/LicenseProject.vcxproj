@@ -143,7 +143,7 @@
     <ClInclude Include="ImageViewerFilter.hpp" />
     <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="PointSetToMeshConverterFilter.hpp" />
-    <ClInclude Include="MeshSerializerFilter.hpp" />
+    <ClInclude Include="MeshSerializerOBJFilter.hpp" />
     <ClInclude Include="MorphologicalFilter.hpp" />
     <ClInclude Include="Path.hpp" />
     <ClInclude Include="Pixel.hpp" />
@@ -170,7 +170,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="PointSetToMeshConverterFilter.cpp" />
-    <ClCompile Include="MeshSerializerFilter.cpp" />
+    <ClCompile Include="MeshSerializerOBJFilter.cpp" />
     <ClCompile Include="MorphologicalFilter.cpp" />
     <ClCompile Include="PathToSliceConverterFilter.cpp" />
     <ClCompile Include="Point2.cpp" />

@@ -164,7 +164,7 @@
     <ClInclude Include="Mesh.hpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="MeshSerializerFilter.hpp">
+    <ClInclude Include="MeshSerializerOBJFilter.hpp">
       <Filter>Filters\Simple\Mesh Serializer</Filter>
     </ClInclude>
     <ClInclude Include="ImageViewerFilter.hpp">
@@ -232,7 +232,7 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Core\Workspace\Workspace Data Internal Representation\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="MeshSerializerFilter.cpp">
+    <ClCompile Include="MeshSerializerOBJFilter.cpp">
       <Filter>Filters\Simple\Mesh Serializer</Filter>
     </ClCompile>
     <ClCompile Include="ImageViewerFilter.cpp">

@@ -20,14 +20,13 @@ namespace Settings {
 	constexpr bool CANNY_ACCURATE_GRADIENT{ false };
 	constexpr std::string_view CANNY_CACHE{ "./cache/canny_edge_detector_filter/" };
 
-
 	// ImageToPointSetFilter
 	constexpr std::string_view IMAGE_TO_POINT_SET_CONVERTER_CACHE{ "./cache/image_to_pointset_converter_filter/" };
 
 	// PointSetToMeshConverterFilter
-	constexpr std::string_view MESH_CREATOR_CACHE{ "./cache/mesh_creator_filter/" };
+	constexpr std::string_view POINT_SET_TO_MESH_CONVERTER_CACHE{ "./cache/mesh_creator_filter/" };
 
-	// MeshSerializerFilter
+	// MeshSerializerOBJFilter
 	constexpr std::string_view MESH_SERIALIZER_CACHE{ "./cache/mesh_serializer_filter/" };
 
 	// ImageViewerFilter
